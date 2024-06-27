@@ -1,8 +1,8 @@
 import './App.css'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from '../Router/Router'
-import { Index } from '../Index/Index'
-import { MyTasks } from '../MyTasks/MyTasks'
+import { Index } from './Index/Index'
+import { MyTasks } from './MyTasks/MyTasks'
 
 function App() {
     const routes = {
