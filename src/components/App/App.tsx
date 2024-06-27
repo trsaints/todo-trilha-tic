@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { Router } from '../Router/Router'
 import { Index } from './Index/Index'
 import { MyTasks } from './MyTasks/MyTasks'
+import { Navbar } from '../Navbar/Navbar'
 
 function App() {
     const routes = {
@@ -10,12 +11,17 @@ function App() {
         elements: [Index.Root(), MyTasks.Root()],
     }
 
+    const links = {
+        placeholders: ['Home', 'My Tasks'],
+        urls: ['/', '/my-tasks'],
+    }
+
     return (
-        <>
-            <BrowserRouter>
-                <Router.Root paths={routes.paths} elements={routes.elements} />
-            </BrowserRouter>
-        </>
+        <BrowserRouter>
+            <Navbar.Root {...links} />
+
+            <Router.Root {...routes} />
+        </BrowserRouter>
     )
 }
 
