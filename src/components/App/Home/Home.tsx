@@ -6,6 +6,6 @@ function Root() {
     )
 }
 
-export const Index = {
+export const Home = {
     Root,
 }
