@@ -1,14 +1,16 @@
 import './App.css'
+
 import { BrowserRouter } from 'react-router-dom'
-import { Router } from '../Router/Router'
-import { Index } from './Index/Index'
-import { MyTasks } from './MyTasks/MyTasks'
-import { Navbar } from '../Navbar/Navbar'
+
+import { Navbar } from '../Navbar/'
+import { Router } from '../Router/'
+import { Home } from './Home'
+import { MyTasks } from './MyTasks/'
 
 function App() {
     const routes = {
         paths: ['/', '/my-tasks'],
-        elements: [Index.Root(), MyTasks.Root()],
+        elements: [Home.Root(), MyTasks.Root()],
     }
 
     const links = {
