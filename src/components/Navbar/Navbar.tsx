@@ -1,9 +1,5 @@
 import { Link } from 'react-router-dom'
-
-interface INavbarProps {
-    placeholders: string[]
-    urls: string[]
-}
+import INavbarProps from '../../Props/INavbarProps'
 
 function Root(props: INavbarProps) {
     return (

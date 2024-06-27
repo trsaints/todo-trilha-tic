@@ -1,11 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
+import IRouterProps from '../../Props/IRouterProps'
 
-interface IRootProps {
-    paths: string[]
-    elements: JSX.Element[]
-}
-
-function Root(props: IRootProps) {
+function Root(props: IRouterProps) {
     return (
         <Routes>
             {props.paths.map((path, index) => (
