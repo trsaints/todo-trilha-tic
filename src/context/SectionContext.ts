@@ -1,9 +1,9 @@
 import { createContext } from 'react'
-import ISectionProps from '../Props/ISectionProps'
+import ISectionContext from './interface/ISectionContext'
 
-const SectionContext = createContext<ISectionProps>({
+const SectionContext = createContext<ISectionContext>({
     block: '',
-    children: null,
+    level: 0
 })
 
 export { SectionContext }
