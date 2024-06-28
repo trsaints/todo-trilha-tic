@@ -1,6 +1,9 @@
 import { useContext } from 'react'
 import { SectionContext } from '../../context/SectionContext'
+
 import IHeadingProps from '../../Props/IHeadingProps'
+
+import './Heading.css'
 
 function Root(props: IHeadingProps) {
     const context = useContext(SectionContext)
