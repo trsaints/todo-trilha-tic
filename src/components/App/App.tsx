@@ -6,6 +6,7 @@ import { Navbar } from '../Navbar/'
 import { Router } from '../Router/'
 import { Home } from './Home'
 import { MyTasks } from './MyTasks/'
+import { Footer } from './Footer/Footer'
 
 function App() {
     const routes = {
@@ -19,11 +20,15 @@ function App() {
     }
 
     return (
-        <BrowserRouter>
-            <Navbar.Root {...links} />
+        <>
+            <BrowserRouter>
+                <Navbar.Root {...links} />
 
-            <Router.Root {...routes} />
-        </BrowserRouter>
+                <Router.Root {...routes} />
+            </BrowserRouter>
+
+            <Footer.Root author="Thiago Rodrigues" />
+        </>
     )
 }
 
