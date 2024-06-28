@@ -1,9 +1,9 @@
 import { createContext } from "react";
 import ISectionProps from "../Props/ISectionProps";
 
-const SectionContext = createContext<ISectionProps>({
+const ElementContext = createContext<ISectionProps>({
     block: "",
     children: null
 })
 
-export { SectionContext }
+export { ElementContext }

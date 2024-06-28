@@ -1,11 +1,11 @@
 import ISectionProps from '../../Props/ISectionProps'
-import { SectionContext } from '../../context/SectionContext'
+import { ElementContext } from '../../context/ElementContext'
 
 function Root(props: ISectionProps) {
     return (
-        <SectionContext.Provider value={props}>
+        <ElementContext.Provider value={props}>
             <article className={props.block}>{props.children}</article>
-        </SectionContext.Provider>
+        </ElementContext.Provider>
     )
 }
 

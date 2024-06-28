@@ -1,3 +1,5 @@
-export default interface IHeadingProps {
-    children: React.ReactNode
+import IElementProps from './IElementProps'
+
+export default interface IHeadingProps extends IElementProps {
+    
 }

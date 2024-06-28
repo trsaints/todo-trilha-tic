@@ -1,4 +1,5 @@
-export default interface ISectionProps {
+import IElementProps from './IElementProps'
+
+export default interface ISectionProps extends IElementProps {
     block: string
-    children: React.ReactNode
 }
