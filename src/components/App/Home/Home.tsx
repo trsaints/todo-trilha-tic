@@ -1,8 +1,11 @@
+import { Heading } from '../../Heading'
+import { Section } from '../../Section'
+
 function Root() {
     return (
-        <header>
-            <h1>Bem vindo ao To-do!</h1>
-        </header>
+        <Section.Root block="home">
+            <Heading.Root>Home</Heading.Root>
+        </Section.Root>
     )
 }
 
