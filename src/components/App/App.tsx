@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom'
 
 import { Navbar } from '../Navbar/'
 import { Router } from '../Router/'
-import { Home } from './Home'
-import { MyTasks } from './MyTasks/'
+import { Home } from '../pages/Home'
+import { MyTasks } from '../pages/MyTasks'
 import { Footer } from './Footer/Footer'
 
 function App() {
