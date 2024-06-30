@@ -6,7 +6,7 @@ import { Navbar } from '../Navbar/'
 import { Router } from '../Router/'
 import { Home } from '../pages/Home'
 import { MyTasks } from '../pages/MyTasks'
-import { Footer } from './Footer/Footer'
+import { Footer } from '../Footer'
 
 function App() {
     const routes = {
