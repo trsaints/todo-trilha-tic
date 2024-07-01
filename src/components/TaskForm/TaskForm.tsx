@@ -1,4 +1,5 @@
 import { Button } from '../Button'
+import { FormField } from '../TextField'
 
 function Root() {
 	return (
@@ -6,10 +7,12 @@ function Root() {
 			<fieldset>
 				<legend>Nova Tarefa</legend>
 
-				<div className="form__field">
-					<label htmlFor="title">Tarefa:</label>
-					<input type="text" />
-				</div>
+				<FormField.Root
+					name="title"
+					label="título"
+					fieldType="text"
+					id="title"
+				/>
 
 				<div className="form__field">
 					<label htmlFor="priority">Prioridade:</label>
@@ -21,10 +24,7 @@ function Root() {
 					<input type="date" />
 				</div>
 
-				<div className="form__field">
-					<label htmlFor="priority">Descrição:</label>
-					<textarea name="" id=""></textarea>
-				</div>
+				<FormField.Root name="title" label="descrição" id="title" />
 			</fieldset>
 
 			<Button.Root variant="primary" type="submit">
