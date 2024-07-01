@@ -1,10 +1,13 @@
+import { Button } from '../../Button'
 import { Heading } from '../../Heading'
 import { Section } from '../../Section'
 
 function Root() {
     return (
         <Section.Root block="my-tasks">
-            <Heading.Root>My Tasks</Heading.Root>
+            <Heading.Root>minhas tarefas</Heading.Root>
+
+            <Button.Root variant="primary" type="button">criar tarefa</Button.Root>
         </Section.Root>
     )
 }
