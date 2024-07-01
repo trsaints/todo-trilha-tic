@@ -9,27 +9,27 @@ import { MyTasks } from '../pages/MyTasks'
 import { Footer } from '../Footer'
 
 function App() {
-    const routes = {
-        paths: ['/', '/my-tasks'],
-        elements: [Home.Root(), MyTasks.Root()],
-    }
+	const routes = {
+		paths: ['/', '/my-tasks'],
+		elements: [Home.Root(), MyTasks.Root()],
+	}
 
-    const links = {
-        placeholders: ['Home', 'My Tasks'],
-        urls: ['/', '/my-tasks'],
-    }
+	const links = {
+		placeholders: ['Home', 'My Tasks'],
+		urls: ['/', '/my-tasks'],
+	}
 
-    return (
-        <>
-            <BrowserRouter>
-                <Navbar.Root {...links} />
+	return (
+		<>
+			<BrowserRouter>
+				<Navbar.Root {...links} />
 
-                <Router.Root {...routes} />
-            </BrowserRouter>
+				<Router.Root {...routes} />
+			</BrowserRouter>
 
-            <Footer.Root author="Thiago Rodrigues" />
-        </>
-    )
+			<Footer.Root author="Thiago Rodrigues" />
+		</>
+	)
 }
 
-export default App
+export { App }
