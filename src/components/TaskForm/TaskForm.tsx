@@ -10,7 +10,7 @@ function Root() {
 				<FormField.Root
 					name="title"
 					label="título"
-					fieldType="text"
+					type="text"
 					id="title"
 				/>
 
