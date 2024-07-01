@@ -16,11 +16,11 @@ function Root() {
 		},
 		{
 			id: 0,
-			title: 'Comer fubá',
+			title: 'Comer bolo',
 			priority: 'high',
 			completionDate: new Date(),
 			creationDate: new Date(),
-			description: 'comer um pouco de fubá',
+			description: 'comer uma fatia de bolo',
 		},
 		{
 			id: 1,
@@ -28,15 +28,15 @@ function Root() {
 			priority: 'high',
 			completionDate: new Date('2021-10-10'),
 			creationDate: new Date('2021-10-10'),
-			description: 'comer um pouco de fubá',
+			description: 'comer um acarajé',
 		},
 		{
 			id: 2,
-			title: 'Comer bolo',
+			title: 'Comer pastel',
 			priority: 'high',
 			completionDate: new Date('2022-12-11'),
 			creationDate: new Date('2022-06-11'),
-			description: 'comer um pouco de fubá',
+			description: 'comer um pastel de queijo',
 		},
 	]
 
