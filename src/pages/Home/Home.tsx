@@ -1,8 +1,8 @@
-import { Task } from '../../../Types/Task'
-import { Heading } from '../../Heading'
-import { Block } from '../../Block'
-import { TaskList } from '../../TaskList'
-import { BlockElement } from '../../BlockElement'
+import { Task } from '../../Types/Task'
+import { Heading } from '../../components/Heading'
+import { Block } from '../../components/Block'
+import { TaskList } from '../../components/TaskList'
+import { BlockElement } from '../../components/BlockElement'
 
 function Root() {
 	const tasks: Task[] = [

@@ -1,7 +1,7 @@
-import { Button } from '../../Button'
-import { Heading } from '../../Heading'
-import { Block } from '../../Block'
-import { TaskForm } from '../../TaskForm'
+import { Button } from '../../components/Button'
+import { Heading } from '../../components/Heading'
+import { Block } from '../../components/Block'
+import { TaskForm } from '../../components/TaskForm'
 
 function Root() {
 	return (
