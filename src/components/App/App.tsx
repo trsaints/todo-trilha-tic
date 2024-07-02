@@ -6,6 +6,7 @@ import { Router } from '../Router/'
 import { Home } from '../../pages/Home'
 import { MyTasks } from '../../pages/MyTasks'
 import { Default } from '../../layouts/Default'
+import { ErrorPage } from '../../pages/ErrorPage'
 
 function App() {
 	const routes = [
@@ -20,6 +21,10 @@ function App() {
 				{
 					name: '/my-tasks',
 					element: <MyTasks.Root />,
+				},
+				{
+					name: '*',
+					element: <ErrorPage.Root statusCode={404} />,
 				},
 			],
 		},
