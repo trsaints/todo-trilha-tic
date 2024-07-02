@@ -4,12 +4,20 @@ import { IRouterProps } from '../../Props/IRouterProps'
 function Root(props: IRouterProps) {
 	return (
 		<Routes>
-			{props.paths.map((path, index) => (
+			{props.mainRoutes.map((mainRoute, i) => (
 				<Route
-					key={`${path}-${index}`}
-					path={path}
-					element={props.elements[index]}
-				/>
+					key={i}
+					path={mainRoute.name}
+					element={mainRoute.element}
+				>
+					{mainRoute.routePaths.map((routePath, j) => (
+						<Route
+							key={j}
+							path={routePath.name}
+							element={routePath.element}
+						/>
+					))}
+				</Route>
 			))}
 		</Routes>
 	)

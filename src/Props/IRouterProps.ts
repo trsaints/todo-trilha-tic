@@ -1,4 +1,6 @@
+import { MainRoute } from "../Types/MainRoute";
+
 export interface IRouterProps {
-	paths: string[]
-	elements: JSX.Element[]
+	mainRoutes: MainRoute[]
 }
+
