@@ -1,5 +1,5 @@
-import IElementProps from './IElementProps'
+import { IElementProps } from './IElementProps'
 
-export default interface ISectionProps extends IElementProps {
-    block: string
+export interface ISectionProps extends IElementProps {
+	block: string
 }

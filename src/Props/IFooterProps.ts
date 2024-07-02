@@ -1,3 +1,3 @@
-export default interface IFooterProps {
-    author: string
+export interface IFooterProps {
+	author: string
 }

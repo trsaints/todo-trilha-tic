@@ -1,4 +1,4 @@
-export default interface IRouterProps {
-    paths: string[]
-    elements: JSX.Element[]
+export interface IRouterProps {
+	paths: string[]
+	elements: JSX.Element[]
 }

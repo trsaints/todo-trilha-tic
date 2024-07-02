@@ -1,4 +1,3 @@
 import IElementProps from './IElementProps'
 
-export default interface IContentProps extends IElementProps {
-}
+export interface IContentProps extends IElementProps {}

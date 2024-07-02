@@ -1,4 +1,4 @@
-import ITaskListProps from '../../Props/ITaskListProps'
+import { ITaskListProps } from '../../Props/ITaskListProps'
 
 function Root(props: ITaskListProps) {
 	const tasks = props.tasks.map((task) => (

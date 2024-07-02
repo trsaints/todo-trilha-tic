@@ -1,3 +1,3 @@
-export default interface IElementProps {
-    children: React.ReactNode
+export interface IElementProps {
+	children: React.ReactNode
 }

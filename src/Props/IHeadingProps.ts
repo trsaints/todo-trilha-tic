@@ -1,5 +1,3 @@
-import IElementProps from './IElementProps'
+import { IElementProps } from './IElementProps'
 
-export default interface IHeadingProps extends IElementProps {
-    
-}
+export interface IHeadingProps extends IElementProps {}

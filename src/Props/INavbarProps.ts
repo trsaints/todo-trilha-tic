@@ -1,4 +1,4 @@
-export default interface INavbarProps {
-    placeholders: string[]
-    urls: string[]
+export interface INavbarProps {
+	placeholders: string[]
+	urls: string[]
 }

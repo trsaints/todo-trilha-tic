@@ -1,4 +1,4 @@
-export default interface ISectionContext {
-    block: string
-    level: number
+export interface ISectionContext {
+	block: string
+	level: number
 }
