@@ -1,5 +1,5 @@
-import { IElementProps } from './IElementProps'
+import { IComponentProps } from './IComponentProps'
 
-export interface IBlockProps extends IElementProps {
+export interface IBlockProps extends IComponentProps {
 	name: string
 }

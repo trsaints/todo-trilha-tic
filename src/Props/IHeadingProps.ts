@@ -1,3 +1,3 @@
-import { IElementProps } from './IElementProps'
+import { IComponentProps } from './IComponentProps'
 
-export interface IHeadingProps extends IElementProps {}
+export interface IHeadingProps extends IComponentProps {}

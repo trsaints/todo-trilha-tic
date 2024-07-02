@@ -1,4 +1,4 @@
-import IElementProps from './IElementProps'
+import IElementProps from './IComponentProps'
 
 type variant = 'primary' | 'secondary'
 

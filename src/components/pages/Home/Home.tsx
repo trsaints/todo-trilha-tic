@@ -43,7 +43,6 @@ function Root() {
 		<Block.Root name="home">
 			<Heading.Root>Início</Heading.Root>
 
-			<Heading.Root>Opções</Heading.Root>
 			<TaskList.Root tasks={tasks} />
 		</Block.Root>
 	)

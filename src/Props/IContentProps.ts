@@ -1,3 +1,3 @@
-import { IElementProps } from './IElementProps'
+import { IComponentProps } from './IComponentProps'
 
-export interface IContentProps extends IElementProps {}
+export interface IContentProps extends IComponentProps {}
