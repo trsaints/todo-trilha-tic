@@ -1,20 +1,20 @@
 import { useContext } from 'react'
 import { ISectionProps } from '../../Props/ISectionProps'
-import { SectionContext } from '../../context/SectionContext'
-import { ISectionContext } from '../../context/interface/ISectionContext'
+import { BlockContext } from '../../context/BlockContext'
+import { IBlockContext } from '../../context/interface/IBlockContext'
 
 function Root(props: ISectionProps) {
-	const context = useContext(SectionContext)
+	const context = useContext(BlockContext)
 
-	const localContext: ISectionContext = {
+	const localContext: IBlockContext = {
 		block: props.block,
 		level: context.level + 1,
 	}
 
 	return (
-		<SectionContext.Provider value={localContext}>
+		<BlockContext.Provider value={localContext}>
 			<article className={props.block}>{props.children}</article>
-		</SectionContext.Provider>
+		</BlockContext.Provider>
 	)
 }
 
