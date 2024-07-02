@@ -1,7 +1,6 @@
 import { Task } from '../../../Types/Task'
-import { Content } from '../../Content'
 import { Heading } from '../../Heading'
-import { Section } from '../../Section'
+import { Block } from '../../Block'
 import { TaskList } from '../../TaskList'
 
 function Root() {
@@ -41,15 +40,12 @@ function Root() {
 	]
 
 	return (
-		<Section.Root block="home">
+		<Block.Root name="home">
 			<Heading.Root>Início</Heading.Root>
 
-			<Content.Root>
-				<Heading.Root>Opções</Heading.Root>
-
-                <TaskList.Root tasks={tasks} />
-			</Content.Root>
-		</Section.Root>
+			<Heading.Root>Opções</Heading.Root>
+			<TaskList.Root tasks={tasks} />
+		</Block.Root>
 	)
 }
 

@@ -1,23 +1,23 @@
 import { useContext } from 'react'
-import { ISectionProps } from '../../Props/ISectionProps'
+import { IBlockProps } from '../../Props/ISectionProps'
 import { BlockContext } from '../../context/BlockContext'
 import { IBlockContext } from '../../context/interface/IBlockContext'
 
-function Root(props: ISectionProps) {
+function Root(props: IBlockProps) {
 	const context = useContext(BlockContext)
 
 	const localContext: IBlockContext = {
-		block: props.block,
+		block: props.name,
 		level: context.level + 1,
 	}
 
 	return (
 		<BlockContext.Provider value={localContext}>
-			<article className={props.block}>{props.children}</article>
+			<article className={props.name}>{props.children}</article>
 		</BlockContext.Provider>
 	)
 }
 
-export const Section = {
+export const Block = {
 	Root,
 }
