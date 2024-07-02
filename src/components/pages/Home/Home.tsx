@@ -15,7 +15,7 @@ function Root() {
 			description: 'comer um pouco de fubá',
 		},
 		{
-			id: 0,
+			id: 1,
 			title: 'Comer bolo',
 			priority: 'high',
 			completionDate: new Date(),
@@ -23,7 +23,7 @@ function Root() {
 			description: 'comer uma fatia de bolo',
 		},
 		{
-			id: 1,
+			id: 2,
 			title: 'Comer acarajé',
 			priority: 'high',
 			completionDate: new Date('2021-10-10'),
@@ -31,7 +31,7 @@ function Root() {
 			description: 'comer um acarajé',
 		},
 		{
-			id: 2,
+			id: 3,
 			title: 'Comer pastel',
 			priority: 'high',
 			completionDate: new Date('2022-12-11'),
