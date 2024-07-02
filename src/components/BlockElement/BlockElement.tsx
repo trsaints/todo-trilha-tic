@@ -1,23 +1,25 @@
 import { useContext } from 'react'
-import { IBlockProps } from '../../Props/IBlockProps'
+import { IBlockElementProps } from '../../Props/IBlockElementProps'
 import { BlockContext } from '../../context/BlockContext'
 import { IBlockContext } from '../../context/interface/IBlockContext'
 
-function Root(props: IBlockProps) {
+function Root(props: IBlockElementProps) {
 	const context = useContext(BlockContext)
 
 	const localContext: IBlockContext = {
-		name: props.name,
-		level: context.level,
+		name: context.name,
+		level: context.level + 1,
 	}
+
+	const element = `${context.name}__${props.name}`
 
 	return (
 		<BlockContext.Provider value={localContext}>
-			<article className={props.name}>{props.children}</article>
+			<article className={element}>{props.children}</article>
 		</BlockContext.Provider>
 	)
 }
 
-export const Block = {
+export const BlockElement = {
 	Root,
 }

@@ -7,7 +7,7 @@ import './Heading.css'
 
 function Root(props: IHeadingProps) {
 	const context = useContext(BlockContext)
-	const element = `${context.block}__heading`
+	const element = `${context.name}__heading`
 
 	switch (context.level) {
 		case 1:

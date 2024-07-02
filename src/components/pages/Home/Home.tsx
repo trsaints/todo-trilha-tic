@@ -2,6 +2,7 @@ import { Task } from '../../../Types/Task'
 import { Heading } from '../../Heading'
 import { Block } from '../../Block'
 import { TaskList } from '../../TaskList'
+import { BlockElement } from '../../BlockElement'
 
 function Root() {
 	const tasks: Task[] = [
@@ -43,7 +44,11 @@ function Root() {
 		<Block.Root name="home">
 			<Heading.Root>Início</Heading.Root>
 
-			<TaskList.Root tasks={tasks} />
+			<BlockElement.Root name="recent">
+				<Heading.Root>Continue de Onde Parou</Heading.Root>
+
+				<TaskList.Root tasks={tasks} />
+			</BlockElement.Root>
 		</Block.Root>
 	)
 }

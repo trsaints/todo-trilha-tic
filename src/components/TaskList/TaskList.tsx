@@ -1,6 +1,11 @@
+import { useContext } from 'react'
 import { ITaskListProps } from '../../Props/ITaskListProps'
+import { BlockContext } from '../../context/BlockContext'
 
 function Root(props: ITaskListProps) {
+	const context = useContext(BlockContext)
+	const element = `${context.name}__tasks`
+
 	const tasks = props.tasks.map((task) => (
 		<li key={task.id}>
 			<details className="task">
@@ -19,7 +24,7 @@ function Root(props: ITaskListProps) {
 		</li>
 	))
 
-	return <ul>{tasks}</ul>
+	return <ul className={element}>{tasks}</ul>
 }
 
 export const TaskList = {

@@ -1,4 +1,4 @@
 export interface IBlockContext {
-	block: string
+	name: string
 	level: number
 }

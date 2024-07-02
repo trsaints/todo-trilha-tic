@@ -2,8 +2,8 @@ import { createContext } from 'react'
 import { IBlockContext } from './interface/IBlockContext'
 
 const BlockContext = createContext<IBlockContext>({
-	block: '',
-	level: 0,
+	name: '',
+	level: 1,
 })
 
 export { BlockContext }
