@@ -1,9 +1,11 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 import { Button } from '../Button'
 import { TextField } from '../TextField'
 import { Priority, Task } from '../../Types/Task'
+import { TaskContext } from '../../context/TaskContext'
 
 function Root() {
+	const { tasks, setTasks } = useContext(TaskContext)
 	const [task, setTask] = useState<Task>()
 	const today = new Date()
 
@@ -20,12 +22,16 @@ function Root() {
 		}
 
 		setTask(formTask)
+	}
 
-		console.log(formTask)
+	const createTask = (e: FormEvent) => {
+		e.preventDefault()
+
+		if (task) setTasks([...tasks, task])
 	}
 
 	return (
-		<form onChange={saveTaskTemporarly}>
+		<form onChange={saveTaskTemporarly} onSubmit={createTask}>
 			<fieldset>
 				<legend>Nova Tarefa</legend>
 

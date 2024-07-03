@@ -7,7 +7,7 @@ import { TaskContext } from '../../context/TaskContext'
 
 function Root() {
 	const { tasks } = useContext(TaskContext)
-	const latestTasks = tasks.slice(0, 3)
+	const latestTasks = tasks.slice(-3)
 
 	return (
 		<Block.Root name="home">
