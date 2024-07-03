@@ -1,8 +1,8 @@
-import { IFooterProps } from '../../Props/IFooterProps'
+import { IFooter } from '../../Props/IFooter'
 
 import './Footer.css'
 
-function Root(props: IFooterProps) {
+function Root(props: IFooter) {
 	const currentYear = new Date().getFullYear()
 
 	return (

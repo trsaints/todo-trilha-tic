@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
-import { IRouterProps } from '../../Props/IRouterProps'
+import { IRouter } from '../../Props/IRouter'
 
-function Root(props: IRouterProps) {
+function Root(props: IRouter) {
 	return (
 		<Routes>
 			{props.mainRoutes.map((mainRoute, i) => (

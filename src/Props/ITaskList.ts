@@ -1,5 +1,5 @@
 import { Task } from '../Types/Task'
 
-export interface ITaskListProps {
+export interface ITaskList {
 	tasks: Task[]
 }

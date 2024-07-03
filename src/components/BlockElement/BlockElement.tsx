@@ -1,9 +1,9 @@
 import { useContext } from 'react'
-import { IBlockElementProps } from '../../Props/IBlockElementProps'
+import { IBlockElement } from '../../Props/IBlockElement'
 import { BlockContext } from '../../context/BlockContext'
 import { IBlockContext } from '../../context/interface/IBlockContext'
 
-function Root(props: IBlockElementProps) {
+function Root(props: IBlockElement) {
 	const context = useContext(BlockContext)
 
 	const localContext: IBlockContext = {

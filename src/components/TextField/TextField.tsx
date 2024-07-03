@@ -1,7 +1,7 @@
-import { IInputProps } from '../../Props/IInputProps'
-import { IFormFieldProps } from '../../Props/ITextFieldProps'
+import { IInput } from '../../Props/IInput'
+import { IFormField } from '../../Props/ITextField'
 
-function Root(props: IFormFieldProps) {
+function Root(props: IFormField) {
 	return (
 		<div className="form__field">
 			<label htmlFor={props.id}>{props.label}</label>
@@ -10,7 +10,7 @@ function Root(props: IFormFieldProps) {
 	)
 }
 
-function Input(props: IInputProps) {
+function Input(props: IInput) {
 	if (props.type == undefined)
 		return <textarea name={props.name} id={props.id}></textarea>
 	else return <input type={props.type} name={props.name} id={props.id} />

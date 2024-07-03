@@ -1,8 +1,8 @@
-import IElementProps from './IComponentProps'
+import { IComponent } from './IComponent'
 
 type variant = 'primary' | 'secondary'
 
-export interface IButtonProps extends IElementProps {
+export interface IButton extends IComponent {
 	type: React.ButtonHTMLAttributes<HTMLButtonElement>['type']
 	variant: variant
 }

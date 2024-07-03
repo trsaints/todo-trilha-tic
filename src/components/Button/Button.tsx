@@ -1,4 +1,4 @@
-import IButtonProps from '../../Props/IButtonProps'
+import IButtonProps from '../../Props/IButton'
 
 import './Button.css'
 

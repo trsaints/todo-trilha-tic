@@ -1,9 +1,9 @@
-import { IErrorPageProps } from '../../Props/IErrorPageProps'
+import { IErrorPage } from '../../Props/IErrorPage'
 import { Block } from '../../components/Block'
 import { Heading } from '../../components/Heading'
 import { ErrorMessages, StatusCodes } from './constants'
 
-function Root(props: IErrorPageProps) {
+function Root(props: IErrorPage) {
 	let errorMessage = ''
 
 	switch (props.statusCode) {

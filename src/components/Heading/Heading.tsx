@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import { BlockContext } from '../../context/BlockContext'
 
-import { IHeadingProps } from '../../Props/IHeadingProps'
+import { IHeading } from '../../Props/IHeading'
 
 import './Heading.css'
 
-function Root(props: IHeadingProps) {
+function Root(props: IHeading) {
 	const context = useContext(BlockContext)
 	const element = `${context.name}__heading`
 

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import { INavbarProps } from '../../Props/INavbarProps'
+import { INavbar } from '../../Props/INavbar'
 
-function Root(props: INavbarProps) {
+function Root(props: INavbar) {
 	return (
 		<nav>
 			{props.placeholders.map((placeholder, index) => (
