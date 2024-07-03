@@ -1,8 +1,8 @@
-import IButtonProps from '../../Props/IButton'
+import { IButton } from './IButton'
 
 import './Button.css'
 
-function Root(props: IButtonProps) {
+function Root(props: IButton) {
 	return (
 		<button className={`button--${props.variant}`} type={props.type}>
 			{props.children}

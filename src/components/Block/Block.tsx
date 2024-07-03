@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { IBlock } from '../../Props/IBlock'
+import { IBlock } from './IBlock'
 import { BlockContext } from '../../context/BlockContext'
 import { IBlockContext } from '../../context/interface/IBlockContext'
 

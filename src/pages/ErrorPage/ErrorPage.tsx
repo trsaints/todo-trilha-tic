@@ -1,4 +1,4 @@
-import { IErrorPage } from '../../Props/IErrorPage'
+import { IErrorPage } from './IErrorPage'
 import { Block } from '../../components/Block'
 import { Heading } from '../../components/Heading'
 import { ErrorMessages, StatusCodes } from './constants'

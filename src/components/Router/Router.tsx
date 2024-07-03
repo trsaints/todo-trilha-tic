@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { IRouter } from '../../Props/IRouter'
+import { IRouter } from './IRouter'
 
 function Root(props: IRouter) {
 	return (

@@ -1,4 +1,4 @@
-import { IFooter } from '../../Props/IFooter'
+import { IFooter } from './IFooter'
 
 import './Footer.css'
 

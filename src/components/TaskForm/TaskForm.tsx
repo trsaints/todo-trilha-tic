@@ -1,10 +1,11 @@
 import { FormEvent, useState } from 'react'
 import { Button } from '../Button'
-import { FormField } from '../TextField'
+import { TextField } from '../TextField'
 import { Priority, Task } from '../../Types/Task'
 
 function Root() {
 	const [task, setTask] = useState<Task>()
+	const today = new Date()
 
 	const saveTaskTemporarly = (e: FormEvent) => {
 		const data = new FormData(e.currentTarget.closest('form') ?? undefined)
@@ -14,7 +15,7 @@ function Root() {
 			title: data.get('title') as string,
 			priority: data.get('priority') as Priority,
 			completionDate: new Date(data.get('completionDate') as string),
-			creationDate: new Date(),
+			creationDate: today,
 			description: data.get('description') as string,
 		}
 
@@ -28,7 +29,7 @@ function Root() {
 			<fieldset>
 				<legend>Nova Tarefa</legend>
 
-				<FormField.Root
+				<TextField.Root
 					name="title"
 					label="título"
 					type="text"
@@ -49,7 +50,7 @@ function Root() {
 					/>
 				</div>
 
-				<FormField.Root
+				<TextField.Root
 					name="description"
 					label="descrição"
 					id="description"

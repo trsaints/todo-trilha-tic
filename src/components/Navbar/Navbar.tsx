@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { INavbar } from '../../Props/INavbar'
+import { INavbar } from './INavbar'
 
 function Root(props: INavbar) {
 	return (
