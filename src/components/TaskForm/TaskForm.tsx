@@ -1,9 +1,30 @@
+import { FormEvent, useState } from 'react'
 import { Button } from '../Button'
 import { FormField } from '../TextField'
+import { Priority, Task } from '../../Types/Task'
 
 function Root() {
+	const [task, setTask] = useState<Task>()
+
+	const saveTaskTemporarly = (e: FormEvent) => {
+		const data = new FormData(e.currentTarget.closest('form') ?? undefined)
+
+		const formTask: Task = {
+			id: Date.now(),
+			title: data.get('title') as string,
+			priority: data.get('priority') as Priority,
+			completionDate: new Date(data.get('completionDate') as string),
+			creationDate: new Date(),
+			description: data.get('description') as string,
+		}
+
+		setTask(formTask)
+
+		console.log(formTask)
+	}
+
 	return (
-		<form>
+		<form onChange={saveTaskTemporarly}>
 			<fieldset>
 				<legend>Nova Tarefa</legend>
 
@@ -16,15 +37,23 @@ function Root() {
 
 				<div className="form__field">
 					<label htmlFor="priority">Prioridade:</label>
-					<input type="text" />
+					<input name="priority" type="text" id="priority" />
 				</div>
 
 				<div className="form__field">
-					<label htmlFor="priority">Prazo:</label>
-					<input type="date" />
+					<label htmlFor="completionDate">Prazo:</label>
+					<input
+						name="completionDate"
+						type="date"
+						id="completionDate"
+					/>
 				</div>
 
-				<FormField.Root name="title" label="descrição" id="title" />
+				<FormField.Root
+					name="description"
+					label="descrição"
+					id="description"
+				/>
 			</fieldset>
 
 			<Button.Root variant="primary" type="submit">

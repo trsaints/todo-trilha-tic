@@ -1,4 +1,4 @@
-type Priority = 'low' | 'medium' | 'high'
+export type Priority = 'low' | 'medium' | 'high'
 
 export type Task = {
 	id: number
