@@ -1,4 +1,4 @@
-export type Priority = 'low' | 'medium' | 'high'
+import { Priority } from './Priority'
 
 export type Task = {
 	id: number
