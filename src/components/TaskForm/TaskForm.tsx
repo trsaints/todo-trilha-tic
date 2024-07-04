@@ -2,8 +2,8 @@ import { FormEvent, useContext, useState } from 'react'
 import { Priority, Task } from '../../Types/Task'
 import { TaskContext } from '../../context/TaskContext'
 
-import { Button } from '../Button'
-import { TextField } from '../TextField'
+import { Button, TextField } from '../../components'
+
 
 function Root() {
 	const { tasks, setTasks } = useContext(TaskContext)

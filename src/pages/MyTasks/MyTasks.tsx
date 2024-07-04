@@ -2,12 +2,14 @@ import { useContext } from 'react'
 
 import { TaskContext } from '../../context/TaskContext'
 
-import { Block } from '../../components/Block'
-import { BlockElement } from '../../components/BlockElement'
-import { Button } from '../../components/Button'
-import { Heading } from '../../components/Heading'
-import { TaskForm } from '../../components/TaskForm'
-import { TaskList } from '../../components/TaskList'
+import {
+	Block,
+	BlockElement,
+	Button,
+	Heading,
+	TaskForm,
+	TaskList,
+} from '../../components'
 
 function Root() {
 	const { tasks } = useContext(TaskContext)

@@ -1,6 +1,6 @@
 import { ITextField } from './ITextField'
 
-import { Input } from '../Input'
+import { Input } from '../../components'
 
 function Root(props: ITextField) {
 	return (
