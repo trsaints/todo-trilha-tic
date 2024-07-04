@@ -1,26 +1,16 @@
 import { useContext } from 'react'
-import { BlockContext } from '../../context/models'
+import { BlockContext, TaskContext } from '../../context/models'
 import { ITaskList } from './ITaskList'
+import { TaskCard } from '../TaskCard'
 
 function Root(props: ITaskList) {
-	const context = useContext(BlockContext)
-	const element = `${context.name}__tasks`
+	const blockContext = useContext(BlockContext)
+	const { isEditable } = useContext(TaskContext)
+	const element = `${blockContext.name}__tasks`
 
 	const tasks = props.tasks.map((task) => (
 		<li key={task.id}>
-			<details className="task">
-				<summary>{task.title}</summary>
-
-				<ul>
-					<li>Prioridade: {task.priority}</li>
-					<li>
-						Expira em: {task.completionDate.toLocaleDateString()}
-					</li>
-					<li>Criado em: {task.creationDate.toLocaleDateString()}</li>
-				</ul>
-
-				<p>{task.description}</p>
-			</details>
+			<TaskCard.Root task={task} isEditable={isEditable} />
 		</li>
 	))
 

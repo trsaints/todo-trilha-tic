@@ -40,8 +40,12 @@ function Root(props: ITaskContextProvider) {
 		},
 	])
 
+	const [isEditable, setIsEditable] = useState(false)
+
 	return (
-		<TaskContext.Provider value={{ tasks, setTasks }}>
+		<TaskContext.Provider
+			value={{ isEditable, tasks, setIsEditable, setTasks }}
+		>
 			{props.children}
 		</TaskContext.Provider>
 	)

@@ -12,7 +12,9 @@ import {
 } from '../../components'
 
 function Root() {
-	const { tasks } = useContext(TaskContext)
+	const { tasks, setIsEditable } = useContext(TaskContext)
+
+	setIsEditable(true)
 
 	return (
 		<Block.Root name="my-tasks">
