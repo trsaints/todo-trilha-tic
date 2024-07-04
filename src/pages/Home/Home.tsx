@@ -1,9 +1,10 @@
-import { Heading } from '../../components/Heading'
-import { Block } from '../../components/Block'
-import { TaskList } from '../../components/TaskList'
-import { BlockElement } from '../../components/BlockElement'
 import { useContext } from 'react'
 import { TaskContext } from '../../context/TaskContext'
+
+import { Block } from '../../components/Block'
+import { BlockElement } from '../../components/BlockElement'
+import { Heading } from '../../components/Heading'
+import { TaskList } from '../../components/TaskList'
 
 function Root() {
 	const { tasks } = useContext(TaskContext)

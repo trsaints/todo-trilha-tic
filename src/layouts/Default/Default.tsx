@@ -1,7 +1,8 @@
-import { Navbar } from '../../components/Navbar'
-import { Footer } from '../../components/Footer'
-import { Outlet } from 'react-router-dom'
 import { TaskContextProvider } from '../../context/providers/TaskContextProvider'
+
+import { Outlet } from 'react-router-dom'
+import { Footer } from '../../components/Footer'
+import { Navbar } from '../../components/Navbar'
 
 function Root() {
 	const links = {

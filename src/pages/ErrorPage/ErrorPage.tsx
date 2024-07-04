@@ -1,7 +1,8 @@
 import { IErrorPage } from './IErrorPage'
+import { ErrorMessages, StatusCodes } from './constants'
+
 import { Block } from '../../components/Block'
 import { Heading } from '../../components/Heading'
-import { ErrorMessages, StatusCodes } from './constants'
 
 function Root(props: IErrorPage) {
 	let errorMessage = ''

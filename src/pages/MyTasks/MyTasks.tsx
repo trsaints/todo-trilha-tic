@@ -1,10 +1,12 @@
+import { useContext } from 'react'
+
+import { TaskContext } from '../../context/TaskContext'
+
+import { Block } from '../../components/Block'
+import { BlockElement } from '../../components/BlockElement'
 import { Button } from '../../components/Button'
 import { Heading } from '../../components/Heading'
-import { Block } from '../../components/Block'
 import { TaskForm } from '../../components/TaskForm'
-import { BlockElement } from '../../components/BlockElement'
-import { useContext } from 'react'
-import { TaskContext } from '../../context/TaskContext'
 import { TaskList } from '../../components/TaskList'
 
 function Root() {

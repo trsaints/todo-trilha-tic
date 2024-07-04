@@ -1,6 +1,6 @@
 import { useContext } from 'react'
-import { ITaskList } from './ITaskList'
 import { BlockContext } from '../../context/BlockContext'
+import { ITaskList } from './ITaskList'
 
 function Root(props: ITaskList) {
 	const context = useContext(BlockContext)
