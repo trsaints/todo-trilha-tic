@@ -1,11 +1,15 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { TaskContext } from '../../context/models'
 
 import { Block, BlockElement, Heading, TaskList } from '../../components'
 
 function Root() {
-	const { tasks } = useContext(TaskContext)
+	const { tasks, setIsEditable } = useContext(TaskContext)
 	const latestTasks = tasks.slice(-3)
+
+	useEffect(() => {
+		setIsEditable(false)
+	}, [])
 
 	return (
 		<Block.Root name="home">

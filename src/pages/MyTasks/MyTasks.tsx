@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 
 import { TaskContext } from '../../context/models'
 
@@ -14,7 +14,9 @@ import {
 function Root() {
 	const { tasks, setIsEditable } = useContext(TaskContext)
 
-	setIsEditable(true)
+	useEffect(() => {
+		setIsEditable(true)
+	}, [])
 
 	return (
 		<Block.Root name="my-tasks">
