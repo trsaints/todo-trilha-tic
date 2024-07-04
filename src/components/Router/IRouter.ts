@@ -1,5 +1,5 @@
 import { RoutesProps } from 'react-router-dom'
-import { MainRoute } from '../../Types/MainRoute'
+import { MainRoute } from '../../types'
 
 export interface IRouter extends RoutesProps {
 	mainRoutes: MainRoute[]

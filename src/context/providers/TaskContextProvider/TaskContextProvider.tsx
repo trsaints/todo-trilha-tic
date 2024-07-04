@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { TaskContext } from '../../models'
 import { ITaskContextProvider } from './ITaskContextProvider'
 
-import { Task } from '../../../Types/Task'
+import { Task } from '../../../types'
 
 function Root(props: ITaskContextProvider) {
 	const [tasks, setTasks] = useState<Task[]>([

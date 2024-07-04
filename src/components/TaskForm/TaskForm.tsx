@@ -1,5 +1,5 @@
 import { FormEvent, useContext, useState } from 'react'
-import { Priority, Task } from '../../Types/Task'
+import { Priority, Task } from '../../types'
 import { TaskContext } from '../../context/models'
 
 import { Button, TextField } from '../../components'
