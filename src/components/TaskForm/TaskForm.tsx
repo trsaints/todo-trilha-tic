@@ -1,12 +1,11 @@
-import { FormEvent, useContext, useState } from 'react'
+import { FormEvent, useContext } from 'react'
 import { Priority, Task } from '../../types'
 import { TaskContext } from '../../context/models'
 
 import { Button, TextField } from '../../components'
 
 function Root() {
-	const { tasks, setTasks } = useContext(TaskContext)
-	const [task, setTask] = useState<Task>()
+	const { createTask, setTask } = useContext(TaskContext)
 	const today = new Date()
 
 	const saveTaskTemporarly = (e: FormEvent) => {
@@ -22,12 +21,6 @@ function Root() {
 		}
 
 		setTask(formTask)
-	}
-
-	const createTask = (e: FormEvent) => {
-		e.preventDefault()
-
-		if (task) setTasks([...tasks, task])
 	}
 
 	return (

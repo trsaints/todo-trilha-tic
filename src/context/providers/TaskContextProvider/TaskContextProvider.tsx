@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { TaskContext } from '../../models'
 import { ITaskContextProvider } from './ITaskContextProvider'
 
@@ -40,11 +40,34 @@ function Root(props: ITaskContextProvider) {
 		},
 	])
 
+	const [task, setTask] = useState<Task>({
+		id: 0,
+		title: '',
+		priority: 'high',
+		completionDate: new Date(),
+		creationDate: new Date(),
+		description: '',
+	})
+
+	const createTask = (e: FormEvent) => {
+		e.preventDefault()
+
+		if (task) setTasks([...tasks, task])
+	}
+
 	const [isEditable, setIsEditable] = useState(false)
 
 	return (
 		<TaskContext.Provider
-			value={{ isEditable, tasks, setIsEditable, setTasks }}
+			value={{
+				isEditable,
+				tasks,
+				task,
+				createTask,
+				setTask,
+				setIsEditable,
+				setTasks,
+			}}
 		>
 			{props.children}
 		</TaskContext.Provider>
