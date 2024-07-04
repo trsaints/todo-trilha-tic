@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import { IBlockContext } from './interface/IBlockContext'
+import { IBlockContext } from './BlockContext/IBlockContext'
 
 const BlockContext = createContext<IBlockContext>({
 	name: '',
