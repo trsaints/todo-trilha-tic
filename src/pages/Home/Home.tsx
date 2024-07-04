@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { TaskContext } from '../../context/TaskContext'
+import { TaskContext } from '../../context/models'
 
 import { Block, BlockElement, Heading, TaskList } from '../../components'
 

@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { BlockContext } from '../../context/BlockContext'
+import { BlockContext } from '../../context/models'
 import { IHeading } from './IHeading'
 
 import './Heading.css'

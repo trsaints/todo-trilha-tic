@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { BlockContext } from '../../context/BlockContext'
+import { BlockContext } from '../../context/models'
 import { ITaskList } from './ITaskList'
 
 function Root(props: ITaskList) {

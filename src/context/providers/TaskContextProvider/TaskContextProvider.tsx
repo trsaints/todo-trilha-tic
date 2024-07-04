@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { TaskContext } from '../../TaskContext'
+import { TaskContext } from '../../models'
 import { ITaskContextProvider } from './ITaskContextProvider'
 
 import { Task } from '../../../Types/Task'
