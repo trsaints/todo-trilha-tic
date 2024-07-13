@@ -4,6 +4,7 @@ import {BlockContext, DataContext} from '../../context/models'
 import {TaskCard} from '../TaskCard'
 
 import {ITaskList} from './ITaskList'
+import './TaskList.css'
 
 function TaskList(props: ITaskList) {
     const blockContext = useContext(BlockContext)

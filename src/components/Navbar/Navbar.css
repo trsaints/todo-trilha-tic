@@ -1,0 +1,14 @@
+[class*="__nav"] {
+    display: flex;
+    gap: 1rem;
+}
+
+.main__nav {
+    padding: 1rem;
+    background-color: var(--night);
+    color: var(--cream);
+}
+
+.main__nav > * {
+    border-bottom: 2px solid var(--cream);
+}

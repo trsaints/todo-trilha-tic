@@ -11,7 +11,7 @@ function DefaultLayout() {
 
 	return (
 		<DataContextProvider>
-			<Navbar {...links} />
+			<Navbar block='main' {...links} />
 			<Outlet />
 			<Footer author="Thiago Rodrigues" />
 		</DataContextProvider>

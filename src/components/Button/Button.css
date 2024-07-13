@@ -1,4 +1,17 @@
-.button--primary {
-    background-color: var(--night);
+[class*="btn--"] {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 0 8px var(--night);
+    width: inherit;
+}
+
+.btn--secondary {
+    background-image: linear-gradient(to bottom, var(--black-olive-3), var(--black-olive));
     color: var(--cream);
+}
+
+.btn--primary {
+    background-image: linear-gradient(to bottom, var(--cream), var(--sage-2));
+    color: var(--night);
 }

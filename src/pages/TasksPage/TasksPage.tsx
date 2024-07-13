@@ -11,6 +11,8 @@ import {
 	TaskList,
 } from '../../components'
 
+import './TasksPage.css'
+
 function TasksPage() {
 	const { tasks, setIsEditable } = useContext(DataContext)
 

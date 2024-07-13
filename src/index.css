@@ -5,10 +5,29 @@
 
 body {
 	font-family: 'Nunito', sans-serif;
+	background-image: linear-gradient(to top, var(--night), var(--eerie-black));
+	color: var(--cream);
 }
 
 a,
 button,
 details {
 	cursor: pointer;
+}
+
+h1, h2 {
+	text-transform: capitalize;
+}
+
+h1 {
+	margin-bottom: 4rem;
+}
+
+h2 {
+	margin-bottom: 2rem;
+}
+
+.home,
+.my-tasks {
+	padding: 4rem 1.5rem;
 }
