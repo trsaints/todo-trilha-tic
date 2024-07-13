@@ -7,6 +7,7 @@ import {Block, BlockElement, Button, Heading, TaskForm, TaskList,} from '../../c
 import './TasksPage.css'
 import {TasksPageContextProvider} from '../../context/providers/TasksPageContextProvider'
 import {TasksPageContext} from '../../context/models/TasksPageContext'
+import {Modal} from '../../components/Modal/Modal.tsx'
 
 function TasksPage() {
     const {tasks, setIsEditable} = useContext(DataContext)
@@ -24,6 +25,8 @@ function TasksPage() {
                 }) => (
                     <Block name='my-tasks'>
                         <Heading>minhas tarefas</Heading>
+
+                        <Modal />
 
                         <BlockElement name='options'>
                             <Button blockElement='options' variant='primary' type='button'>
