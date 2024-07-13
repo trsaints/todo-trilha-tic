@@ -2,7 +2,7 @@ import { IFooter } from './IFooter'
 
 import './Footer.css'
 
-function Root(props: IFooter) {
+function Footer(props: IFooter) {
 	const currentYear = new Date().getFullYear()
 
 	return (
@@ -16,6 +16,4 @@ function Root(props: IFooter) {
 	)
 }
 
-export const Footer = {
-	Root,
-}
+export {Footer}

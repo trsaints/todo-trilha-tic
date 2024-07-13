@@ -3,7 +3,7 @@ import { TaskContext } from '../../context/models'
 
 import { Block, BlockElement, Heading, TaskList } from '../../components'
 
-function Root() {
+function Home() {
 	const { tasks, setIsEditable } = useContext(TaskContext)
 	const latestTasks = tasks.slice(-3)
 
@@ -12,18 +12,16 @@ function Root() {
 	}, [])
 
 	return (
-		<Block.Root name="home">
-			<Heading.Root>Início</Heading.Root>
+		<Block name="home">
+			<Heading>Início</Heading>
 
-			<BlockElement.Root name="recent">
-				<Heading.Root>Continue de Onde Parou</Heading.Root>
+			<BlockElement name="recent">
+				<Heading>Continue de Onde Parou</Heading>
 
-				<TaskList.Root tasks={latestTasks} />
-			</BlockElement.Root>
-		</Block.Root>
+				<TaskList tasks={latestTasks} />
+			</BlockElement>
+		</Block>
 	)
 }
 
-export const Home = {
-	Root,
-}
+export {Home}

@@ -1,68 +1,68 @@
-import { FormEvent, useContext } from 'react'
-import { Priority, Task } from '../../types'
-import { TaskContext } from '../../context/models'
+import {FormEvent, useContext} from 'react'
+import {Priority, Task} from '../../types'
+import {TaskContext} from '../../context/models'
 
-import { Button, TextField } from '../../components'
+import {Button, TextField} from '../../components'
 
-function Root() {
-	const { createTask, setTask } = useContext(TaskContext)
-	const today = new Date()
+function TaskForm() {
+    const {createTask, setTask} = useContext(TaskContext)
+    const today                 = new Date()
 
-	const saveTaskTemporarly = (e: FormEvent) => {
-		const data = new FormData(e.currentTarget.closest('form') ?? undefined)
+    const saveTaskTemporarily = (e: FormEvent) => {
+        const data = new FormData(e.currentTarget.closest('form') ?? undefined)
 
-		const formTask: Task = {
-			id: Date.now(),
-			title: data.get('title') as string,
-			priority: data.get('priority') as Priority,
-			completionDate: new Date(data.get('completionDate') as string),
-			creationDate: today,
-			description: data.get('description') as string,
-		}
+        const formTask: Task = {
+            id: Date.now(),
+            title: data.get('title') as string,
+            priority: data.get('priority') as Priority,
+            completionDate: new Date(data.get('completionDate') as string),
+            creationDate: today,
+            description: data.get('description') as string,
+        }
 
-		setTask(formTask)
-	}
+        setTask(formTask)
+    }
 
-	return (
-		<form onChange={saveTaskTemporarly} onSubmit={createTask}>
-			<fieldset>
-				<legend>Nova Tarefa</legend>
+    return (
+        <form className='task-form' onChange={saveTaskTemporarily} onSubmit={createTask}>
+            <fieldset className='task-form__fieldset'>
+                <legend className='task-form__legend'>Nova Tarefa</legend>
 
-				<TextField.Root
-					name="title"
-					label="título"
-					type="text"
-					id="title"
-				/>
+                <TextField
+                    name='title'
+                    label='título'
+                    type='text'
+                    id='title'
+                />
 
-				<div className="form__field">
-					<label htmlFor="priority">Prioridade:</label>
-					<input name="priority" type="text" id="priority" />
-				</div>
+                <div className='form__field'>
+                    <label htmlFor='priority'>Prioridade:</label>
+                    
+                    <select name='priority' id='priority'>
+                        <option value='low'>baixa</option>
+                        <option value='medium'>média</option>
+                        <option value='high'>alta</option>
+                    </select>
+                </div>
 
-				<div className="form__field">
-					<label htmlFor="completionDate">Prazo:</label>
-					<input
-						name="completionDate"
-						type="date"
-						id="completionDate"
-					/>
-				</div>
+                <TextField
+                    name='completionDate'
+                    label='data de conclusão'
+                    type='date'
+                    id='completionDate'/>
 
-				<TextField.Root
-					name="description"
-					label="descrição"
-					id="description"
-				/>
-			</fieldset>
+                <TextField
+                    name='description'
+                    label='descrição'
+                    id='description'
+                />
+            </fieldset>
 
-			<Button.Root variant="primary" type="submit">
-				criar tarefa
-			</Button.Root>
-		</form>
-	)
+            <Button blockElement='task-form' variant='primary' type='submit'>
+                criar tarefa
+            </Button>
+        </form>
+    )
 }
 
-export const TaskForm = {
-	Root,
-}
+export {TaskForm}

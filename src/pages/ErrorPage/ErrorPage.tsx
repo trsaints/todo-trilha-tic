@@ -1,34 +1,32 @@
-import { IErrorPage } from './IErrorPage'
-import { ErrorMessages, StatusCodes } from './constants'
+import {ErrorMessages, StatusCodes} from './constants'
 
-import { Block } from '../../components/Block'
-import { Heading } from '../../components/Heading'
+import {Block, Heading} from '../../components'
 
-function Root(props: IErrorPage) {
-	let errorMessage = ''
+import {IErrorPage} from './IErrorPage'
 
-	switch (props.statusCode) {
-		case StatusCodes.NOT_FOUND:
-			errorMessage = ErrorMessages.NOT_FOUND
-			break
+function ErrorPage(props: IErrorPage) {
+    let errorMessage = ''
 
-		case StatusCodes.INTERNAL_SERVER_ERROR:
-			errorMessage = ErrorMessages.INTERNAL_SERVER_ERROR
-			break
+    switch (props.statusCode) {
+        case StatusCodes.NOT_FOUND:
+            errorMessage = ErrorMessages.NOT_FOUND
+            break
 
-		default:
-			errorMessage = ErrorMessages.INTERNAL_SERVER_ERROR
-			break
-	}
+        case StatusCodes.INTERNAL_SERVER_ERROR:
+            errorMessage = ErrorMessages.INTERNAL_SERVER_ERROR
+            break
 
-	return (
-		<Block.Root name="not-found">
-			<Heading.Root>oops... algou deu errado.</Heading.Root>
-			<p>{errorMessage}</p>
-		</Block.Root>
-	)
+        default:
+            errorMessage = ErrorMessages.INTERNAL_SERVER_ERROR
+            break
+    }
+
+    return (
+        <Block name='not-found'>
+            <Heading>oops... algou deu errado.</Heading>
+            <p>{errorMessage}</p>
+        </Block>
+    )
 }
 
-export const ErrorPage = {
-	Root,
-}
+export {ErrorPage}

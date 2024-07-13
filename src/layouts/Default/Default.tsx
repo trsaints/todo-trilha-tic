@@ -3,21 +3,19 @@ import { TaskContextProvider } from '../../context/providers'
 import { Outlet } from 'react-router-dom'
 import { Footer, Navbar } from '../../components'
 
-function Root() {
+function DefaultLayout() {
 	const links = {
 		placeholders: ['Home', 'My Tasks'],
 		urls: ['/', '/my-tasks'],
 	}
 
 	return (
-		<TaskContextProvider.Root>
-			<Navbar.Root {...links} />
+		<TaskContextProvider>
+			<Navbar {...links} />
 			<Outlet />
-			<Footer.Root author="Thiago Rodrigues" />
-		</TaskContextProvider.Root>
+			<Footer author="Thiago Rodrigues" />
+		</TaskContextProvider>
 	)
 }
 
-export const Default = {
-	Root,
-}
+export {DefaultLayout}

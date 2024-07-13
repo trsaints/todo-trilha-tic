@@ -2,14 +2,16 @@ import { IButton } from './IButton'
 
 import './Button.css'
 
-function Root(props: IButton) {
+function Button(props: IButton) {
+	const {blockElement, variant, children} = props
+	
+	const buttonSelector = `${blockElement}__button btn--${variant}`
+	
 	return (
-		<button className={`button--${props.variant}`} type={props.type}>
-			{props.children}
+		<button className={buttonSelector} type={props.type}>
+			{children}
 		</button>
 	)
 }
 
-export const Button = {
-    Root,
-}
+export {Button}

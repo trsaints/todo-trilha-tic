@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
+
 import { IRouter } from './IRouter'
 
-function Root(props: IRouter) {
+function Router(props: IRouter) {
 	return (
 		<Routes>
 			{props.mainRoutes.map((mainRoute, i) => (
@@ -23,6 +24,4 @@ function Root(props: IRouter) {
 	)
 }
 
-export const Router = {
-	Root,
-}
+export {Router}

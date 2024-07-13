@@ -11,7 +11,7 @@ import {
 	TaskList,
 } from '../../components'
 
-function Root() {
+function MyTasks() {
 	const { tasks, setIsEditable } = useContext(TaskContext)
 
 	useEffect(() => {
@@ -19,22 +19,20 @@ function Root() {
 	}, [])
 
 	return (
-		<Block.Root name="my-tasks">
-			<Heading.Root>minhas tarefas</Heading.Root>
+		<Block name="my-tasks">
+			<Heading>minhas tarefas</Heading>
 
-			<BlockElement.Root name="options">
-				<Button.Root variant="primary" type="button">
+			<BlockElement name="options">
+				<Button blockElement='options' variant="primary" type="button">
 					criar tarefa
-				</Button.Root>
+				</Button>
 
-				<TaskForm.Root />
-			</BlockElement.Root>
+				<TaskForm />
+			</BlockElement>
 
-			<TaskList.Root tasks={tasks} />
-		</Block.Root>
+			<TaskList tasks={tasks} />
+		</Block>
 	)
 }
 
-export const MyTasks = {
-	Root,
-}
+export {MyTasks}

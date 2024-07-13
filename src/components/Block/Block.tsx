@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { BlockContext, IBlockContext } from '../../context/models'
 import { IBlock } from './IBlock'
 
-function Root(props: IBlock) {
+function Block(props: IBlock) {
 	const context = useContext(BlockContext)
 
 	const localContext: IBlockContext = {
@@ -17,6 +17,4 @@ function Root(props: IBlock) {
 	)
 }
 
-export const Block = {
-	Root,
-}
+export {Block}

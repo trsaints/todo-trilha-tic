@@ -1,6 +1,7 @@
 import { Task } from '../../types'
+import {ComponentProps} from 'react'
 
-interface ITaskCard extends React.ComponentProps<'details'> {
+interface ITaskCard extends ComponentProps<'details'> {
 	task: Task
 	isEditable: boolean
 }

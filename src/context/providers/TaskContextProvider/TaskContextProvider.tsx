@@ -1,10 +1,10 @@
 import { FormEvent, useState } from 'react'
 import { TaskContext } from '../../models'
-import { ITaskContextProvider } from './ITaskContextProvider'
-
 import { Task } from '../../../types'
 
-function Root(props: ITaskContextProvider) {
+import { ITaskContextProvider } from './ITaskContextProvider'
+
+function TaskContextProvider(props: ITaskContextProvider) {
 	const [tasks, setTasks] = useState<Task[]>([
 		{
 			id: 0,
@@ -74,6 +74,4 @@ function Root(props: ITaskContextProvider) {
 	)
 }
 
-export const TaskContextProvider = {
-	Root,
-}
+export {TaskContextProvider}

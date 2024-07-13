@@ -1,26 +1,46 @@
-import { Button } from '../Button'
-import { ITaskCard } from './ITaskCard'
+import {Button} from '../Button'
 
-function Root(props: ITaskCard) {
-	const { isEditable, task } = props
+import {ITaskCard} from './ITaskCard'
 
-	return (
-		<details className="task">
-			<summary>{task.title}</summary>
+function TaskCard(props: ITaskCard) {
+    const {isEditable, task} = props
 
-			<ul>
-				<li>Prioridade: {task.priority}</li>
-				<li>Expira em: {task.completionDate.toLocaleDateString()}</li>
-				<li>Criado em: {task.creationDate.toLocaleDateString()}</li>
-			</ul>
+    return (
+        <details className='task'>
+            <summary className='task__title'>{task.title}</summary>
 
-			<p>{task.description}</p>
+            <ul className='task__meta'>
+                <li>Prioridade: {task.priority}</li>
+                <li>Expira em: {task.completionDate.toLocaleDateString()}</li>
+                <li>Criado em: {task.creationDate.toLocaleDateString()}</li>
+            </ul>
 
-			{isEditable && (
-				<Button.Root variant="secondary">Excluir</Button.Root>
-			)}
-		</details>
-	)
+            <p className='task__description'>{task.description}</p>
+
+            {isEditable && (
+                <menu className='task__menu'>
+                    <li>
+                        <Button blockElement='task'
+                                variant='secondary'
+                                type='button'
+                                data-action='delete'>
+                            Excluir
+                        </Button>
+                    </li>
+
+                    <li>
+                        <Button
+                            blockElement='task'
+                            variant='secondary'
+                            type='button'
+                            data-action='edit'>
+                            Editar
+                        </Button>
+                    </li>
+                </menu>
+            )}
+        </details>
+    )
 }
 
-export const TaskCard = { Root }
+export {TaskCard}
