@@ -1,4 +1,4 @@
-import { TaskContextProvider } from '../../context/providers'
+import { DataContextProvider } from '../../context/providers'
 
 import { Outlet } from 'react-router-dom'
 import { Footer, Navbar } from '../../components'
@@ -10,11 +10,11 @@ function DefaultLayout() {
 	}
 
 	return (
-		<TaskContextProvider>
+		<DataContextProvider>
 			<Navbar {...links} />
 			<Outlet />
 			<Footer author="Thiago Rodrigues" />
-		</TaskContextProvider>
+		</DataContextProvider>
 	)
 }
 
