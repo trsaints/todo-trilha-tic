@@ -2,9 +2,9 @@ import { IInput } from './IInput'
 
 function Input(props: IInput) {
 	if (props.type == undefined)
-		return <textarea name={props.name} id={props.id}></textarea>
+		return <textarea className='text-input' name={props.name} id={props.id}></textarea>
 	else 
-		return <input type={props.type} name={props.name} id={props.id} />
+		return <input className='text-input' type={props.type} name={props.name} id={props.id} />
 }
 
 export {Input}

@@ -4,6 +4,8 @@ import {DataContext} from '../../context/models'
 
 import {Button, TextField} from '../../components'
 
+import './TaskForm.css'
+
 function TaskForm() {
     const {createTask, setTask} = useContext(DataContext)
     const today                 = new Date()
@@ -35,10 +37,10 @@ function TaskForm() {
                     id='title'
                 />
 
-                <div className='form__field'>
-                    <label htmlFor='priority'>Prioridade:</label>
+                <div className='text-field'>
+                    <label className='text-field__label' htmlFor='priority'>Prioridade:</label>
                     
-                    <select name='priority' id='priority'>
+                    <select className='text-input' name='priority' id='priority'>
                         <option value='low'>baixa</option>
                         <option value='medium'>média</option>
                         <option value='high'>alta</option>
@@ -47,7 +49,7 @@ function TaskForm() {
 
                 <TextField
                     name='completionDate'
-                    label='data de conclusão'
+                    label='prazo'
                     type='date'
                     id='completionDate'/>
 

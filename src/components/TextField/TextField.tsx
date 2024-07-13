@@ -4,8 +4,8 @@ import {Input} from '../../components'
 
 function TextField(props: ITextField) {
     return (
-        <div className='form__field'>
-            <label htmlFor={props.id}>{props.label}</label>
+        <div className='text-field'>
+            <label className='text-field__label' htmlFor={props.id}>{props.label}</label>
 
             <Input
                 name={props.name}

@@ -4,6 +4,7 @@
     text-align: center;
     box-shadow: 0 0 8px var(--night);
     width: inherit;
+    text-transform: uppercase;
 }
 
 .btn--secondary {
