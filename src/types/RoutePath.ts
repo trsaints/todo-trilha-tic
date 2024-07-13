@@ -1,4 +1,4 @@
 export type RoutePath = {
 	name: string
-	element: JSX.Element
+	element: Element
 }

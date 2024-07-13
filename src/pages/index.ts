@@ -1,4 +1,4 @@
 export * from './ErrorPage'
-export * from './Home'
-export * from './MyTasks'
+export * from './HomePage'
+export * from './TasksPage'
 

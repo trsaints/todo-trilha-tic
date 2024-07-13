@@ -11,7 +11,7 @@ import {
 	TaskList,
 } from '../../components'
 
-function MyTasks() {
+function TasksPage() {
 	const { tasks, setIsEditable } = useContext(TaskContext)
 
 	useEffect(() => {
@@ -35,4 +35,4 @@ function MyTasks() {
 	)
 }
 
-export {MyTasks}
+export {TasksPage}

@@ -2,6 +2,6 @@ import { RoutePath } from './RoutePath'
 
 export type MainRoute = {
 	name: string
-	element: JSX.Element
+	element: Element
 	routePaths: RoutePath[]
 }

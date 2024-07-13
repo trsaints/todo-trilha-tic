@@ -1,8 +1,8 @@
 import {BrowserRouter} from 'react-router-dom'
 import {Router} from '../Router'
 
-import {ErrorPage, Home, MyTasks} from '../../pages'
-import {DefaultLayout} from '../../layouts/Default'
+import {ErrorPage, HomePage, TasksPage} from '../../pages'
+import {DefaultLayout} from '../../layouts/DefaultLayout'
 
 import './App.css'
 
@@ -14,11 +14,11 @@ function App() {
             routePaths: [
                 {
                     name: '/',
-                    element: <Home/>,
+                    element: <HomePage/>,
                 },
                 {
                     name: '/my-tasks',
-                    element: <MyTasks/>,
+                    element: <TasksPage/>,
                 },
                 {
                     name: '*',

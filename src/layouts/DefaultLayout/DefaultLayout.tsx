@@ -5,7 +5,7 @@ import { Footer, Navbar } from '../../components'
 
 function DefaultLayout() {
 	const links = {
-		placeholders: ['Home', 'My Tasks'],
+		placeholders: ['HomePage', 'My Tasks'],
 		urls: ['/', '/my-tasks'],
 	}
 

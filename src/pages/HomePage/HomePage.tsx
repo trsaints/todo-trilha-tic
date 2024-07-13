@@ -3,7 +3,7 @@ import { TaskContext } from '../../context/models'
 
 import { Block, BlockElement, Heading, TaskList } from '../../components'
 
-function Home() {
+function HomePage() {
 	const { tasks, setIsEditable } = useContext(TaskContext)
 	const latestTasks = tasks.slice(-3)
 
@@ -24,4 +24,4 @@ function Home() {
 	)
 }
 
-export {Home}
+export {HomePage}
