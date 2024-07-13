@@ -1,4 +1,3 @@
 import {PropsWithChildren} from 'react'
 
-export interface ITasksPageContextProvider extends PropsWithChildren {
-}
+export interface ITasksPageContextProvider extends PropsWithChildren {}

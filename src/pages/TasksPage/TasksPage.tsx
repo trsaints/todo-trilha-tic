@@ -1,40 +1,44 @@
-import { useContext, useEffect } from 'react'
+import {useContext, useEffect} from 'react'
 
-import { DataContext } from '../../context/models'
+import {DataContext} from '../../context/models'
 
-import {
-	Block,
-	BlockElement,
-	Button,
-	Heading,
-	TaskForm,
-	TaskList,
-} from '../../components'
+import {Block, BlockElement, Button, Heading, TaskForm, TaskList,} from '../../components'
 
 import './TasksPage.css'
+import {TasksPageContextProvider} from '../../context/providers/TasksPageContextProvider'
+import {TasksPageContext} from '../../context/models/TasksPageContext'
 
 function TasksPage() {
-	const { tasks, setIsEditable } = useContext(DataContext)
+    const {tasks, setIsEditable} = useContext(DataContext)
 
-	useEffect(() => {
-		setIsEditable(true)
-	}, [])
+    useEffect(() => {
+        setIsEditable(true)
+    }, [setIsEditable])
 
-	return (
-		<Block name="my-tasks">
-			<Heading>minhas tarefas</Heading>
+    return (
+        <TasksPageContextProvider>
+            <TasksPageContext.Consumer>
+                {({
+                    createTask,
+                    saveTaskTemporarily
+                }) => (
+                    <Block name='my-tasks'>
+                        <Heading>minhas tarefas</Heading>
 
-			<BlockElement name="options">
-				<Button blockElement='options' variant="primary" type="button">
-					criar tarefa
-				</Button>
+                        <BlockElement name='options'>
+                            <Button blockElement='options' variant='primary' type='button'>
+                                criar tarefa
+                            </Button>
 
-				<TaskForm />
-			</BlockElement>
+                            <TaskForm onHandleChange={saveTaskTemporarily} onHandleSubmit={createTask}/>
+                        </BlockElement>
 
-			<TaskList tasks={tasks} />
-		</Block>
-	)
+                        <TaskList tasks={tasks}/>
+                    </Block>
+                )}
+            </TasksPageContext.Consumer>
+        </TasksPageContextProvider>
+    )
 }
 
 export {TasksPage}

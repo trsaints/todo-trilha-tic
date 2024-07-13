@@ -1,32 +1,13 @@
-import {FormEvent, useContext} from 'react'
-import {Priority, Task} from '../../types'
-import {DataContext} from '../../context/models'
-
 import {Button, TextField} from '../../components'
 
+import {ITaskForm} from './ITaskForm.ts'
 import './TaskForm.css'
 
-function TaskForm() {
-    const {createTask, setTask} = useContext(DataContext)
-    const today                 = new Date()
-
-    const saveTaskTemporarily = (e: FormEvent) => {
-        const data = new FormData(e.currentTarget.closest('form') ?? undefined)
-
-        const formTask: Task = {
-            id: Date.now(),
-            title: data.get('title') as string,
-            priority: data.get('priority') as Priority,
-            completionDate: new Date(data.get('completionDate') as string),
-            creationDate: today,
-            description: data.get('description') as string,
-        }
-
-        setTask(formTask)
-    }
+function TaskForm(props: ITaskForm) {
+    const {onHandleSubmit, onHandleChange} = props
 
     return (
-        <form className='task-form' onChange={saveTaskTemporarily} onSubmit={createTask}>
+        <form className='task-form' onChange={onHandleChange} onSubmit={onHandleSubmit}>
             <fieldset className='task-form__fieldset'>
                 <legend className='task-form__legend'>Nova Tarefa</legend>
 
@@ -39,7 +20,7 @@ function TaskForm() {
 
                 <div className='text-field'>
                     <label className='text-field__label' htmlFor='priority'>Prioridade:</label>
-                    
+
                     <select className='text-input' name='priority' id='priority'>
                         <option value='low'>baixa</option>
                         <option value='medium'>média</option>
