@@ -1,7 +1,7 @@
 import { createContext } from 'react'
-import { ITaskContext } from './ITaskContext'
+import { IDataContext } from './IDataContext.ts'
 
-const TaskContext = createContext<ITaskContext>({
+const DataContext = createContext<IDataContext>({
 	tasks: [],
 	task: {
 		id: 0,
@@ -18,4 +18,4 @@ const TaskContext = createContext<ITaskContext>({
 	setIsEditable: () => {},
 })
 
-export { TaskContext }
+export { DataContext }

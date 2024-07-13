@@ -1,7 +1,7 @@
 import { FormEvent } from 'react'
 import { Task } from '../../../types'
 
-export interface ITaskContext {
+export interface IDataContext {
 	isEditable: boolean
 	tasks: Task[]
 	task: Task

@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react'
-import { TaskContext } from '../../models'
+import { DataContext } from '../../models'
 import { Task } from '../../../types'
 
 import { IDataContextProvider } from './IDataContextProvider.ts'
@@ -58,7 +58,7 @@ function DataContextProvider(props: IDataContextProvider) {
 	const [isEditable, setIsEditable] = useState(false)
 
 	return (
-		<TaskContext.Provider
+		<DataContext.Provider
 			value={{
 				isEditable,
 				tasks,
@@ -70,7 +70,7 @@ function DataContextProvider(props: IDataContextProvider) {
 			}}
 		>
 			{props.children}
-		</TaskContext.Provider>
+		</DataContext.Provider>
 	)
 }
 

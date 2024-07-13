@@ -1,10 +1,10 @@
 import { useContext, useEffect } from 'react'
-import { TaskContext } from '../../context/models'
+import { DataContext } from '../../context/models'
 
 import { Block, BlockElement, Heading, TaskList } from '../../components'
 
 function HomePage() {
-	const { tasks, setIsEditable } = useContext(TaskContext)
+	const { tasks, setIsEditable } = useContext(DataContext)
 	const latestTasks = tasks.slice(-3)
 
 	useEffect(() => {

@@ -1,11 +1,11 @@
 import {FormEvent, useContext} from 'react'
 import {Priority, Task} from '../../types'
-import {TaskContext} from '../../context/models'
+import {DataContext} from '../../context/models'
 
 import {Button, TextField} from '../../components'
 
 function TaskForm() {
-    const {createTask, setTask} = useContext(TaskContext)
+    const {createTask, setTask} = useContext(DataContext)
     const today                 = new Date()
 
     const saveTaskTemporarily = (e: FormEvent) => {
