@@ -11,7 +11,6 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
     const {
               setTask,
               setTasks,
-              setIsModalOpen,
               setModalContent
           }             = useContext(DataContext)
     const {children}    = props
@@ -39,7 +38,12 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
     }
 
     const openTaskForm = () => {
-        setIsModalOpen(true)
+        const target = document.querySelector('#modal') as HTMLDialogElement
+
+        if (!target) return
+
+        target.showModal()
+
         setModalContent(<TaskForm onHandleChange={saveTaskTemporarily} onHandleSubmit={createTask}/>)
     }
 

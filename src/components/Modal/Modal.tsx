@@ -11,10 +11,12 @@ function Modal() {
     const closeOnClick = () => setIsModalOpen(false)
     
     return (
-        <dialog open={isModalOpen} aria-hidden={!isModalOpen}>
+        <dialog id='modal' className='modal' aria-hidden={!isModalOpen}>
             <menu>
                 <li>
-                    <Button blockElement='modal' variant='secondary' onClick={closeOnClick} />
+                    <Button blockElement='modal' variant='secondary' onHandleClick={closeOnClick} >
+                        fechar
+                    </Button>
                 </li>
             </menu>
             
