@@ -1,13 +1,12 @@
 import {useContext, useEffect} from 'react'
 
-import {DataContext} from '../../context/models'
-
-import {Block, BlockElement, Button, Heading, TaskForm, TaskList,} from '../../components'
-
-import './TasksPage.css'
 import {TasksPageContextProvider} from '../../context/providers/TasksPageContextProvider'
 import {TasksPageContext} from '../../context/models/TasksPageContext'
-import {Modal} from '../../components/Modal/Modal.tsx'
+import {DataContext} from '../../context/models'
+
+import {Block, BlockElement, Button, Heading, Modal, TaskList,} from '../../components'
+
+import './TasksPage.css'
 
 function TasksPage() {
     const {tasks, setIsEditable} = useContext(DataContext)
@@ -20,20 +19,21 @@ function TasksPage() {
         <TasksPageContextProvider>
             <TasksPageContext.Consumer>
                 {({
-                    createTask,
-                    saveTaskTemporarily
+                    openTaskForm
                 }) => (
                     <Block name='my-tasks'>
                         <Heading>minhas tarefas</Heading>
 
-                        <Modal />
-
                         <BlockElement name='options'>
-                            <Button blockElement='options' variant='primary' type='button'>
+                            <Button 
+                                blockElement='options' 
+                                variant='primary' 
+                                type='button' 
+                                onHandleClick={openTaskForm}>
                                 criar tarefa
                             </Button>
 
-                            <TaskForm onHandleChange={saveTaskTemporarily} onHandleSubmit={createTask}/>
+                            <Modal/>
                         </BlockElement>
 
                         <TaskList tasks={tasks}/>

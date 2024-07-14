@@ -3,7 +3,8 @@ import {ITasksPageContext} from './ITasksPageContext'
 
 const TasksPageContext = createContext<ITasksPageContext>({
     saveTaskTemporarily: () => {},
-    createTask: () => {}
+    createTask: () => {},
+    openTaskForm: () => {}
 })
 
 export {TasksPageContext}
