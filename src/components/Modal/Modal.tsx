@@ -19,7 +19,7 @@ function Modal() {
 
     return (
         <dialog id='modal' className='modal' aria-hidden={!isModalOpen}>
-            <menu>
+            <menu className='modal__menu'>
                 <li>
                     <Button blockElement='modal' variant='secondary' onHandleClick={closeOnClick}>
                         fechar

@@ -1,0 +1,13 @@
+::backdrop {
+    background-color: rgba(10, 10, 8, 0.8);
+}
+
+.modal {
+    background: transparent;
+    border: none;
+    color: unset;
+}
+
+.modal__button {
+    margin-bottom: 2rem;
+}
