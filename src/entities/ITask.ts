@@ -1,6 +1,6 @@
-import { Priority } from './Priority'
+import { Priority } from '../types'
 
-export type Task = {
+export interface ITask {
 	id: number
 	title: string
 	priority: Priority
