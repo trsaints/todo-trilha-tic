@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {ReactNode, useState} from 'react'
 import {DataContext} from '../../models'
 import {Task} from '../../../types'
 
@@ -49,7 +49,10 @@ function DataContextProvider(props: IDataContextProvider) {
         description: '',
     })
 
-    const [isEditable, setIsEditable] = useState(false)
+    const [isEditable, setIsEditable] = useState<boolean>(false)
+    
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+    const [modalContent, setModalContent] = useState<ReactNode>(null)
 
     return (
         <DataContext.Provider
@@ -57,9 +60,13 @@ function DataContextProvider(props: IDataContextProvider) {
                 isEditable,
                 tasks,
                 task,
+                isModalOpen,
+                modalContent,
                 setTask,
                 setIsEditable,
                 setTasks,
+                setIsModalOpen,
+                setModalContent
             }}
         >
             {props.children}

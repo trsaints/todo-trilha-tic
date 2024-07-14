@@ -10,4 +10,5 @@ export * from './Router'
 export * from './TaskForm'
 export * from './TaskList'
 export * from './TextField'
+export * from './Modal'
 
