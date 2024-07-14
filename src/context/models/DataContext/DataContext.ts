@@ -12,10 +12,12 @@ const DataContext = createContext<IDataContext>({
         description: '',
     },
     isEditable: false,
+    isModalOpen: true,
     modalContent: null,
     setTask: () => {},
     setTasks: () => {},
     setIsEditable: () => {},
+    setIsModalOpen: () => {},
     setModalContent: () => {},
 })
 

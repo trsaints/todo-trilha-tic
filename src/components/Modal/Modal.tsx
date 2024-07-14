@@ -6,20 +6,27 @@ import {Button} from '../Button'
 
 function Modal() {
     const {modalContent, isModalOpen} = useContext(DataContext)
-    const {setIsModalOpen} = useContext(DataContext)
+    const {setIsModalOpen}            = useContext(DataContext)
 
-    const closeOnClick = () => setIsModalOpen(false)
-    
+    const closeOnClick = () => {
+        const target = document.querySelector('#modal') as HTMLDialogElement
+
+        if (!target) return
+
+        target.close()
+        setIsModalOpen(false)
+    }
+
     return (
         <dialog id='modal' className='modal' aria-hidden={!isModalOpen}>
             <menu>
                 <li>
-                    <Button blockElement='modal' variant='secondary' onHandleClick={closeOnClick} >
+                    <Button blockElement='modal' variant='secondary' onHandleClick={closeOnClick}>
                         fechar
                     </Button>
                 </li>
             </menu>
-            
+
             {modalContent}
         </dialog>
     )
