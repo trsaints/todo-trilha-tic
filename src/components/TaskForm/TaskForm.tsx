@@ -7,7 +7,7 @@ function TaskForm(props: ITaskForm) {
     const {onHandleSubmit, onHandleChange} = props
 
     return (
-        <form className='task-form' onChange={onHandleChange} onSubmit={onHandleSubmit}>
+        <form className='task-form' onChange={onHandleChange} onSubmit={onHandleSubmit} id='task-form'>
             <fieldset className='task-form__fieldset'>
                 <legend className='task-form__legend'>Nova Tarefa</legend>
 
