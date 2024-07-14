@@ -1,6 +1,6 @@
-import React from 'react'
-import { Task } from '../../types'
+import {ComponentProps} from 'react'
+import {ITask} from '../../entities'
 
-export interface ITaskList extends React.ComponentProps<'div'> {
-	tasks: Task[]
+export interface ITaskList extends ComponentProps<'ul'> {
+	tasks: ITask[]
 }

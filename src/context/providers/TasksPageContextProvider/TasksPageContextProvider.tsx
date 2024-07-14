@@ -1,23 +1,26 @@
 import {FormEvent, useContext, useEffect, useRef} from 'react'
-import {Priority, Task} from '../../../types'
+import {taskService} from '../../../services'
 import {DataContext} from '../../models'
 
 import {TaskForm} from '../../../components'
 
+import {Priority} from '../../../types'
+import {ITask} from '../../../entities'
 import {ITasksPageContext, TasksPageContext} from '../../models/TasksPageContext'
 import {ITasksPageContextProvider} from './ITasksPageContextProvider'
 
 function TasksPageContextProvider(props: ITasksPageContextProvider) {
-    const {task}     = useContext(DataContext)
+    const {children} = props
+
+    const {task} = useContext(DataContext)
     const {
               setTask,
               setTasks,
               setModalContent,
               setIsModalOpen
-          }          = useContext(DataContext)
-    const {children} = props
+          }      = useContext(DataContext)
 
-    const taskRef = useRef<Task | null>(task)
+    const taskRef = useRef<ITask | null>(task)
 
     useEffect(() => {
         taskRef.current = task
@@ -28,7 +31,7 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
         const target = document.querySelector('#task-form') as HTMLFormElement
         const data   = new FormData(target)
 
-        const formTask: Task = {
+        const formTask: ITask = {
             id: Date.now(),
             title: data.get('title') as string,
             priority: data.get('priority') as Priority,
@@ -44,6 +47,9 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
         e.preventDefault()
 
         setTasks(prevTasks => taskRef.current ? [...prevTasks, taskRef.current] : prevTasks)
+
+        const emptyTask = taskService.getEmptyTask()
+        setTask(emptyTask)
     }
 
     const openTaskForm = () => {
@@ -54,15 +60,7 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
 
         if (form) form.reset()
 
-        const emptyTask: Task = {
-            id: Date.now(),
-            title: '',
-            priority: 'low',
-            completionDate: new Date(),
-            creationDate: new Date(),
-            description: '',
-        }
-
+        const emptyTask = taskService.getEmptyTask()
         setTask(emptyTask)
 
         modal.showModal()

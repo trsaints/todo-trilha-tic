@@ -1,11 +1,13 @@
 import {ReactNode, useState} from 'react'
-import {DataContext} from '../../models'
-import {Task} from '../../../types'
+import {DataContext, IDataContext} from '../../models'
 
+import {taskService} from '../../../services'
+
+import {ITask} from '../../../entities'
 import {IDataContextProvider} from './IDataContextProvider.ts'
 
 function DataContextProvider(props: IDataContextProvider) {
-    const [tasks, setTasks] = useState<Task[]>([
+    const [tasks, setTasks] = useState<ITask[]>([
         {
             id: 0,
             title: 'Comer fubá',
@@ -40,35 +42,28 @@ function DataContextProvider(props: IDataContextProvider) {
         },
     ])
 
-    const [task, setTask] = useState<Task>({
-        id: 0,
-        title: '',
-        priority: 'high',
-        completionDate: new Date(),
-        creationDate: new Date(),
-        description: '',
-    })
+    const [task, setTask] = useState<ITask>(taskService.getEmptyTask)
 
     const [isEditable, setIsEditable] = useState<boolean>(false)
-    
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+
+    const [isModalOpen, setIsModalOpen]   = useState<boolean>(false)
     const [modalContent, setModalContent] = useState<ReactNode>(null)
 
+    const context: IDataContext = {
+        isEditable,
+        tasks,
+        task,
+        isModalOpen,
+        modalContent,
+        setTask,
+        setIsEditable,
+        setTasks,
+        setIsModalOpen,
+        setModalContent
+    }
+    
     return (
-        <DataContext.Provider
-            value={{
-                isEditable,
-                tasks,
-                task,
-                isModalOpen,
-                modalContent,
-                setTask,
-                setIsEditable,
-                setTasks,
-                setIsModalOpen,
-                setModalContent
-            }}
-        >
+        <DataContext.Provider value={context}>
             {props.children}
         </DataContext.Provider>
     )

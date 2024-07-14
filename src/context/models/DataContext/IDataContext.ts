@@ -1,14 +1,15 @@
 import {Dispatch, ReactNode, SetStateAction} from 'react'
-import {Task} from '../../../types'
+import {ITask} from '../../../entities'
 
 export interface IDataContext {
     isEditable: boolean
-    tasks: Task[]
-    task: Task
+    tasks: ITask[]
+    task: ITask
     isModalOpen: boolean
     modalContent: ReactNode
-    setTask: Dispatch<SetStateAction<Task>>
-    setTasks: Dispatch<SetStateAction<Task[]>>
+    
+    setTask: Dispatch<SetStateAction<ITask>>
+    setTasks: Dispatch<SetStateAction<ITask[]>>
     setIsEditable: Dispatch<SetStateAction<boolean>>
     setIsModalOpen: Dispatch<SetStateAction<boolean>>
     setModalContent: Dispatch<SetStateAction<ReactNode>>
