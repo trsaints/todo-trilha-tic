@@ -3,6 +3,31 @@ import {Button} from '../Button'
 import {ITaskCard} from './ITaskCard'
 import './TaskCard.css'
 
+function TaskCardMenu() {
+    return (
+        <menu className='task__menu'>
+            <li>
+                <Button blockElement='task'
+                        variant='secondary'
+                        type='button'
+                        data-action='delete'>
+                    Excluir
+                </Button>
+            </li>
+
+            <li>
+                <Button
+                    blockElement='task'
+                    variant='secondary'
+                    type='button'
+                    data-action='edit'>
+                    Editar
+                </Button>
+            </li>
+        </menu>
+    )   
+}
+
 function TaskCard(props: ITaskCard) {
     const {isEditable, task} = props
     const priotityTranslation = {
@@ -27,28 +52,7 @@ function TaskCard(props: ITaskCard) {
                 {task.description}
             </p>
 
-            {isEditable && (
-                <menu className='task__menu'>
-                    <li>
-                        <Button blockElement='task'
-                                variant='secondary'
-                                type='button'
-                                data-action='delete'>
-                            Excluir
-                        </Button>
-                    </li>
-
-                    <li>
-                        <Button
-                            blockElement='task'
-                            variant='secondary'
-                            type='button'
-                            data-action='edit'>
-                            Editar
-                        </Button>
-                    </li>
-                </menu>
-            )}
+            {isEditable && <TaskCardMenu />}
         </details>
     )
 }
