@@ -21,6 +21,7 @@ function TaskCardMenu() {
                     blockElement='task'
                     variant='secondary'
                     type='button'
+                    action='edit'
                     >
                     Editar
                 </Button>

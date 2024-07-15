@@ -30,7 +30,9 @@ function TasksPage() {
                                 blockElement='options' 
                                 variant='primary' 
                                 type='button' 
-                                onHandleClick={openTaskForm}>
+                                onHandleClick={openTaskForm}
+                                action='create'
+                            >
                                 criar tarefa
                             </Button>
 
