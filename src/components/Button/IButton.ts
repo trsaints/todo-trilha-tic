@@ -6,4 +6,5 @@ export interface IButton extends ComponentProps<'button'> {
 	blockElement: string
 	variant: variant
 	onHandleClick?: MouseEventHandler<HTMLButtonElement>
+	action?: string
 }
