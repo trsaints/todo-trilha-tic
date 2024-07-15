@@ -65,14 +65,19 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
 
     const handleTaskOptions = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
         const target = e.target as HTMLElement
-        const taskId = target.dataset.id as string
-        const action = target.dataset.action as string
+        const action = target?.dataset.action as string
+        
+        if (!target || !action) return
 
-        if (!target || !taskId || !action) return
-
-        if (action === 'delete')    
+        const taskCard = target.closest('[data-task-id]') as HTMLElement
+        const taskId   = taskCard?.dataset.taskId as string
+        
+        if (!taskCard || !taskId) return
+        
+        if (action === 'delete')
             deleteTask(taskId)
     }
+    
     const openTaskForm      = () => {
         const modal = document.querySelector('#modal') as HTMLDialogElement
         const form  = document.querySelector('#task-form') as HTMLFormElement
