@@ -7,17 +7,19 @@ import {ITaskList} from './ITaskList'
 import './TaskList.css'
 
 function TaskList(props: ITaskList) {
-    const blockContext = useContext(BlockContext)
+    const {tasks, onHandleClick} = props
+
     const {isEditable} = useContext(DataContext)
+    const blockContext = useContext(BlockContext)
     const element      = `${blockContext.name}__tasks`
 
-    const tasks = props.tasks.map((task) => (
+    const cards = tasks.map((task) => (
         <li key={task.id}>
             <TaskCard task={task} isEditable={isEditable}/>
         </li>
     ))
 
-    return <ul className={element}>{tasks}</ul>
+    return <ul className={element} onClick={onHandleClick}>{cards}</ul>
 }
 
 export {TaskList}

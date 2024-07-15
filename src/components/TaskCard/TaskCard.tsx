@@ -10,7 +10,8 @@ function TaskCardMenu() {
                 <Button blockElement='task'
                         variant='secondary'
                         type='button'
-                        data-action='delete'>
+                        action='delete'
+                        >
                     Excluir
                 </Button>
             </li>
@@ -20,7 +21,7 @@ function TaskCardMenu() {
                     blockElement='task'
                     variant='secondary'
                     type='button'
-                    data-action='edit'>
+                    >
                     Editar
                 </Button>
             </li>
@@ -37,7 +38,7 @@ function TaskCard(props: ITaskCard) {
     }
 
     return (
-        <details className='task'>
+        <details className='task' data-task-id={task.id}>
             <summary className='task__title'>{task.title}</summary>
 
             <ul className='task__meta'>

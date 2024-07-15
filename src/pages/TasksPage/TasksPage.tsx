@@ -19,7 +19,8 @@ function TasksPage() {
         <TasksPageContextProvider>
             <TasksPageContext.Consumer>
                 {({
-                    openTaskForm
+                    openTaskForm,
+                    handleTaskOptions
                 }) => (
                     <Block name='my-tasks'>
                         <Heading>minhas tarefas</Heading>
@@ -36,7 +37,7 @@ function TasksPage() {
                             <Modal/>
                         </BlockElement>
 
-                        <TaskList tasks={tasks}/>
+                        <TaskList onHandleClick={handleTaskOptions} tasks={tasks}/>
                     </Block>
                 )}
             </TasksPageContext.Consumer>
