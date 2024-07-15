@@ -1,4 +1,4 @@
-import {FormEvent, useContext, useEffect, useRef} from 'react'
+import React, {FormEvent, useContext, useEffect, useRef} from 'react'
 import {taskService} from '../../../services'
 import {DataContext} from '../../models'
 
@@ -6,6 +6,7 @@ import {TaskForm} from '../../../components'
 
 import {Priority} from '../../../types'
 import {ITask} from '../../../entities'
+
 import {ITasksPageContext, TasksPageContext} from '../../models/TasksPageContext'
 import {ITasksPageContextProvider} from './ITasksPageContextProvider'
 
@@ -52,7 +53,27 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
         setTask(emptyTask)
     }
 
-    const openTaskForm = () => {
+    const updateTask = (taskId: string, newTask: ITask) => {
+        setTasks(prevTasks => 
+            prevTasks.map(task => task.id.toString() === taskId ? newTask : task))
+    }
+
+    const deleteTask = (taskId: string) => {
+        setTasks(prevTasks =>
+            prevTasks.filter(task => task.id.toString() !== taskId))
+    }
+
+    const handleTaskOptions = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+        const target = e.target as HTMLElement
+        const taskId = target.dataset.id as string
+        const action = target.dataset.action as string
+
+        if (!target || !taskId || !action) return
+
+        if (action === 'delete')    
+            deleteTask(taskId)
+    }
+    const openTaskForm      = () => {
         const modal = document.querySelector('#modal') as HTMLDialogElement
         const form  = document.querySelector('#task-form') as HTMLFormElement
 
@@ -72,6 +93,9 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
     const context: ITasksPageContext = {
         saveTaskTemporarily,
         createTask,
+        deleteTask,
+        updateTask,
+        handleTaskOptions,
         openTaskForm
     }
 
