@@ -51,17 +51,13 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
         const form    = document.querySelector('#task-form') as HTMLFormElement
         const newTask = taskService.getFormData(form, Number(readWriteRef.current))
 
-        console.table(newTask)
-        console.log(readWriteRef.current)
-        console.log(readWriteId)
-
         setTasks(prevTasks =>
             prevTasks.map(task => task.id === newTask.id ? newTask : task))
     }
 
-    const deleteTask = (taskId: string) => {
+    const deleteTask = () => {
         setTasks(prevTasks =>
-            prevTasks.filter(task => task.id.toString() !== taskId))
+            prevTasks.filter(task => task.id.toString() !== readWriteRef.current))
     }
 
     const handleTaskOptions = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
@@ -78,7 +74,7 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
         setReadWriteId(taskId)
 
         if (action === 'delete')
-            deleteTask(taskId)
+            deleteTask()
         else if (action === 'edit')
             openTaskForm(e)
     }
@@ -86,18 +82,13 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
     const openTaskForm = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
         const target = e.target as HTMLElement
         const action = target?.dataset.action as string
-
-        console.log(action)
-
+        
         const modal = document.querySelector('#modal') as HTMLDialogElement
         const form  = document.querySelector('#task-form') as HTMLFormElement
-
-        // if (!modal || !form || !target || !action) return
-
-        if (form) form.reset()
-
-        const emptyTask = taskService.getEmptyTask()
-        setTask(emptyTask)
+        
+        if (form && action === 'create') form.reset()
+        
+        setTask(taskService.getEmptyTask())
 
         modal.showModal()
         setIsModalOpen(true)
@@ -112,7 +103,7 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
     }
 
     const context: ITasksPageContext = {
-        saveNewTaskTemporarily: saveNewTaskTemporarily,
+        saveNewTaskTemporarily,
         createTask,
         deleteTask,
         updateTask,
