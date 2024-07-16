@@ -1,6 +1,6 @@
 import {MouseEventHandler} from 'react'
 
 export interface ITasksPageContext {
-    openTaskForm: MouseEventHandler<HTMLButtonElement>
+    openTaskForm: MouseEventHandler<HTMLElement>
     handleTaskOptions: MouseEventHandler<HTMLElement>
 }

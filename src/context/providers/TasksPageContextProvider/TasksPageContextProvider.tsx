@@ -1,4 +1,4 @@
-import React, {FormEvent, useContext, useEffect, useRef, useState} from 'react'
+import {FormEventHandler, MouseEventHandler, useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react'
 import {taskService} from '../../../services'
 import {DataContext} from '../../models'
 
@@ -15,7 +15,7 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
     const readWriteRef                  = useRef<string>(readWriteId)
 
     const {task}  = useContext(DataContext)
-    const taskRef = useRef<ITask | null>(task)
+    const taskRef = useRef<ITask>(task)
 
     const {
               setTask,
@@ -29,93 +29,95 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
         readWriteRef.current = readWriteId
     }, [task, readWriteId])
 
-    const saveNewTaskTemporarily = () => {
-        const form     = document.querySelector('#task-form') as HTMLFormElement
-        const formTask = taskService.getFormData(form)
-        console.table(formTask)
+    const saveNewTaskTemporarily = useCallback<FormEventHandler<HTMLFormElement>>(
+        () => {
+            const form     = document.querySelector('#task-form') as HTMLFormElement
+            const formTask = taskService.getFormData(form)
 
-        setTask(formTask)
-    }
+            setTask(formTask)
+        }, [setTask])
 
-    const createTask = (e: FormEvent) => {
-        e.preventDefault()
+    const createTask = useCallback<FormEventHandler<HTMLFormElement>>(
+        (e) => {
+            e.preventDefault()
 
-        setTasks(prevTasks => taskRef.current ? [...prevTasks, taskRef.current] : prevTasks)
+            setTasks(prevTasks => taskRef.current ? [...prevTasks, taskRef.current] : prevTasks)
 
-        const emptyTask = taskService.getEmptyTask()
-        setTask(emptyTask)
-    }
+            const emptyTask = taskService.getEmptyTask()
+            setTask(emptyTask)
+        }, [setTasks, setTask])
 
-    const updateTask = (e: FormEvent) => {
-        e.preventDefault()
+    const updateTask = useCallback<FormEventHandler<HTMLFormElement>>(
+        (e) => {
+            e.preventDefault()
 
-        const form    = document.querySelector('#task-form') as HTMLFormElement
-        const newTask = taskService.getFormData(form, Number(readWriteRef.current))
-        console.table(newTask)
+            const form    = document.querySelector('#task-form') as HTMLFormElement
+            const newTask = taskService.getFormData(form, Number(readWriteRef.current))
 
-        setTasks(prevTasks =>
-            prevTasks.map(task => task.id === newTask.id ? newTask : task))
-    }
+            setTasks(prevTasks =>
+                prevTasks.map(task => task.id === newTask.id ? newTask : task))
+        }, [readWriteRef, setTasks])
 
-    const deleteTask = () => {
-        setTasks(prevTasks =>
-            prevTasks.filter(task => task.id.toString() !== readWriteRef.current))
-    }
+    const deleteTask = useCallback((id: string) => {
+        setTasks(prevTasks => prevTasks.filter(task => task.id.toString() !== id))
+    }, [setTasks])
 
-    const handleTaskOptions = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-        const target = e.target as HTMLElement
-        const action = target?.dataset.action as string
+    const openTaskForm = useCallback<MouseEventHandler<HTMLElement>>(
+        (e) => {
+            const target = e.target as HTMLElement
+            const action = target?.dataset.action as string
 
-        if (!target || !action) return
+            const modal = document.querySelector('#modal') as HTMLDialogElement
+            const form  = document.querySelector('#task-form') as HTMLFormElement
 
-        const taskCard = target.closest('[data-task-id]') as HTMLElement
-        const taskId   = taskCard?.dataset.taskId as string
+            if (form && action === 'create') form.reset()
 
-        if (!taskCard || !taskId) return
+            setTask(taskService.getEmptyTask())
 
-        setReadWriteId(taskId)
+            modal.showModal()
+            setIsModalOpen(true)
 
-        if (action === 'delete')
-            deleteTask()
-        else if (action === 'edit')
-            openTaskForm(e)
-    }
+            const actionHandler = action === 'create'
+                                  ? createTask
+                                  : action === 'edit'
+                                    ? updateTask : () => {
+                    }
 
-    const openTaskForm = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-        const target = e.target as HTMLElement
-        const action = target?.dataset.action as string
+            setModalContent(
+                <TaskForm
+                    onHandleChange={saveNewTaskTemporarily}
+                    onHandleSubmit={(e) => {
+                        actionHandler(e)
+                        modal.close()
+                        setIsModalOpen(false)
+                    }}
+                />)
+        }, [createTask, updateTask, saveNewTaskTemporarily, setIsModalOpen, setModalContent, setTask])
 
-        const modal = document.querySelector('#modal') as HTMLDialogElement
-        const form  = document.querySelector('#task-form') as HTMLFormElement
+    const handleTaskOptions = useCallback<MouseEventHandler<HTMLElement>>(
+        (e) => {
+            const target = e.target as HTMLElement
+            const action = target?.dataset.action as string
 
-        if (form && action === 'create') form.reset()
+            if (!target || !action) return
 
-        setTask(taskService.getEmptyTask())
+            const taskCard = target.closest('[data-task-id]') as HTMLElement
+            const taskId   = taskCard?.dataset.taskId as string
 
-        modal.showModal()
-        setIsModalOpen(true)
+            if (!taskCard || !taskId) return
 
-        const actionHandler = action === 'create'
-                              ? createTask
-                              : action === 'edit'
-                                ? updateTask : () => {
-                }
+            if (action === 'delete') {
+                deleteTask(taskId)
+            } else if (action === 'edit') {
+                setReadWriteId(taskId) // Assuming you still need to set this for editing
+                openTaskForm(e)
+            }
+        }, [deleteTask, openTaskForm, setReadWriteId])
 
-        setModalContent(
-            <TaskForm
-                onHandleChange={saveNewTaskTemporarily}
-                onHandleSubmit={(e) => {
-                    actionHandler(e)
-                    modal.close()
-                    setIsModalOpen(false)
-                }}
-            />)
-    }
-
-    const context: ITasksPageContext = {
-        handleTaskOptions,
-        openTaskForm
-    }
+    const context = useMemo<ITasksPageContext>(() => ({
+        openTaskForm,
+        handleTaskOptions
+    }), [openTaskForm, handleTaskOptions])
 
     return <TasksPageContext.Provider value={context}>{children}</TasksPageContext.Provider>
 }
