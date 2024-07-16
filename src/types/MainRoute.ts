@@ -1,7 +1,8 @@
 import { RoutePath } from './RoutePath'
+import {ReactElement} from 'react'
 
 export type MainRoute = {
 	name: string
-	element: Element
+	element: ReactElement
 	routePaths: RoutePath[]
 }

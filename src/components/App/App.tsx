@@ -5,9 +5,10 @@ import {ErrorPage, HomePage, TasksPage} from '../../pages'
 import {DefaultLayout} from '../../layouts/DefaultLayout'
 
 import './App.css'
+import {MainRoute} from '../../types'
 
 function App() {
-    const routes = [
+    const routes: MainRoute[] = [
         {
             name: '/',
             element: <DefaultLayout/>,
