@@ -1,11 +1,11 @@
 import {FormEventHandler, MouseEventHandler, useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react'
+
+import {ITask} from '../../../entities'
 import {taskService} from '../../../services'
-import {DataContext} from '../../models'
+import {DataContext, ITasksPageContext, TasksPageContext} from '../../models'
 
 import {TaskForm} from '../../../components'
-import {ITask} from '../../../entities'
 
-import {ITasksPageContext, TasksPageContext} from '../../models/TasksPageContext'
 import {ITasksPageContextProvider} from './ITasksPageContextProvider'
 
 function TasksPageContextProvider(props: ITasksPageContextProvider) {
@@ -38,28 +38,32 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
         }, [setTask])
 
     const createTask = useCallback<FormEventHandler<HTMLFormElement>>(
-        (e) => {
+        async (e) => {
             e.preventDefault()
+            
+            const createdTask = await taskService.addTask(taskRef.current)
 
-            setTasks(prevTasks => taskRef.current ? [...prevTasks, taskRef.current] : prevTasks)
+            setTasks(prevTasks => createdTask ? [...prevTasks, createdTask] : prevTasks)
 
             const emptyTask = taskService.getEmptyTask()
             setTask(emptyTask)
         }, [setTasks, setTask])
 
     const updateTask = useCallback<FormEventHandler<HTMLFormElement>>(
-        (e) => {
+        async (e) => {
             e.preventDefault()
 
             const form    = document.querySelector('#task-form') as HTMLFormElement
-            const newTask = taskService.getFormData(form, Number(readWriteRef.current))
+            const formData = taskService.getFormData(form, Number(readWriteRef.current))
+            await taskService.updateTask(formData)
 
-            setTasks(prevTasks =>
-                prevTasks.map(task => task.id === newTask.id ? newTask : task))
+            setTasks(await taskService.getTasks())
         }, [readWriteRef, setTasks])
 
-    const deleteTask = useCallback((id: string) => {
-        setTasks(prevTasks => prevTasks.filter(task => task.id.toString() !== id))
+    const deleteTask = useCallback(async (id: string) => {
+        await taskService.removeTask(id)
+        
+        setTasks(await taskService.getTasks())
     }, [setTasks])
 
     const openTaskForm = useCallback<MouseEventHandler<HTMLElement>>(
