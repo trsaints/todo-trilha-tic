@@ -52,7 +52,7 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
         const form    = document.querySelector('#task-form') as HTMLFormElement
         const newTask = taskService.getFormData(form, Number(readWriteRef.current))
         console.table(newTask)
-        
+
         setTasks(prevTasks =>
             prevTasks.map(task => task.id === newTask.id ? newTask : task))
     }
@@ -84,12 +84,12 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
     const openTaskForm = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
         const target = e.target as HTMLElement
         const action = target?.dataset.action as string
-        
+
         const modal = document.querySelector('#modal') as HTMLDialogElement
         const form  = document.querySelector('#task-form') as HTMLFormElement
-        
+
         if (form && action === 'create') form.reset()
-        
+
         setTask(taskService.getEmptyTask())
 
         modal.showModal()
@@ -101,7 +101,15 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
                                 ? updateTask : () => {
                 }
 
-        setModalContent(<TaskForm onHandleChange={saveNewTaskTemporarily} onHandleSubmit={actionHandler}/>)
+        setModalContent(
+            <TaskForm
+                onHandleChange={saveNewTaskTemporarily}
+                onHandleSubmit={(e) => {
+                    actionHandler(e)
+                    modal.close()
+                    setIsModalOpen(false)
+                }}
+            />)
     }
 
     const context: ITasksPageContext = {
