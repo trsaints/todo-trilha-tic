@@ -1,49 +1,38 @@
 import {useContext, useEffect} from 'react'
-
-import {TasksPageContextProvider} from '../../context/providers/TasksPageContextProvider'
-import {TasksPageContext} from '../../context/models/TasksPageContext'
-import {DataContext} from '../../context/models'
+import {DataContext, TasksPageContext} from '../../context/models'
 
 import {Block, BlockElement, Button, Heading, Modal, TaskList,} from '../../components'
 
 import './TasksPage.css'
 
 function TasksPage() {
-    const {tasks, setIsEditable} = useContext(DataContext)
+    const {tasks, setIsEditable}            = useContext(DataContext)
+    const {openTaskForm, handleTaskOptions} = useContext(TasksPageContext)
 
     useEffect(() => {
         setIsEditable(true)
     }, [setIsEditable])
 
     return (
-        <TasksPageContextProvider>
-            <TasksPageContext.Consumer>
-                {({
-                    openTaskForm,
-                    handleTaskOptions
-                }) => (
-                    <Block name='my-tasks'>
-                        <Heading>minhas tarefas</Heading>
+        <Block name='my-tasks'>
+            <Heading>minhas tarefas</Heading>
 
-                        <BlockElement name='options'>
-                            <Button 
-                                blockElement='options' 
-                                variant='primary' 
-                                type='button' 
-                                onHandleClick={openTaskForm}
-                                action='create'
-                            >
-                                criar tarefa
-                            </Button>
+            <BlockElement name='options'>
+                <Button
+                    blockElement='options'
+                    variant='primary'
+                    type='button'
+                    onHandleClick={openTaskForm}
+                    action='create'
+                >
+                    criar tarefa
+                </Button>
 
-                            <Modal/>
-                        </BlockElement>
+                <Modal/>
+            </BlockElement>
 
-                        <TaskList onHandleClick={handleTaskOptions} tasks={tasks}/>
-                    </Block>
-                )}
-            </TasksPageContext.Consumer>
-        </TasksPageContextProvider>
+            <TaskList onHandleClick={handleTaskOptions} tasks={tasks}/>
+        </Block>
     )
 }
 

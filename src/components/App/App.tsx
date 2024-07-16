@@ -6,6 +6,7 @@ import {DefaultLayout} from '../../layouts/DefaultLayout'
 
 import './App.css'
 import {MainRoute} from '../../types'
+import {TasksPageContextProvider} from '../../context/providers/TasksPageContextProvider'
 
 function App() {
     const routes: MainRoute[] = [
@@ -19,7 +20,10 @@ function App() {
                 },
                 {
                     name: '/my-tasks',
-                    element: <TasksPage/>,
+                    element: (
+                        <TasksPageContextProvider>
+                            <TasksPage/>
+                        </TasksPageContextProvider>)
                 },
                 {
                     name: '*',
