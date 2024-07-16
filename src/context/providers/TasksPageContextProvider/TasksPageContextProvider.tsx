@@ -32,6 +32,7 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
     const saveNewTaskTemporarily = () => {
         const form     = document.querySelector('#task-form') as HTMLFormElement
         const formTask = taskService.getFormData(form)
+        console.table(formTask)
 
         setTask(formTask)
     }
@@ -50,7 +51,8 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
 
         const form    = document.querySelector('#task-form') as HTMLFormElement
         const newTask = taskService.getFormData(form, Number(readWriteRef.current))
-
+        console.table(newTask)
+        
         setTasks(prevTasks =>
             prevTasks.map(task => task.id === newTask.id ? newTask : task))
     }

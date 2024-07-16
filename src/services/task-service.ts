@@ -15,19 +15,24 @@ function getEmptyTask() {
 }
 
 function getFormData(form: HTMLFormElement, id?: number) {
-    const today  = new Date()
-    const data   = new FormData(form)
+    const today = new Date();
+    const data = new FormData(form);
+
+    let completionDate = new Date(data.get('completionDate') as string);
+
+    // Adjust for the timezone offset to ensure the date is correct
+    completionDate = new Date(completionDate.getTime() + completionDate.getTimezoneOffset() * 60000);
 
     const formTask: ITask = {
         id: id ?? Date.now(),
         title: data.get('title') as string,
         priority: data.get('priority') as Priority,
-        completionDate: new Date(data.get('completionDate') as string),
+        completionDate: completionDate,
         creationDate: today,
         description: data.get('description') as string,
     }
-    
-    return formTask
+
+    return formTask;
 }
 
 export const taskService = {
