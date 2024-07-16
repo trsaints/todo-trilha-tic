@@ -113,10 +113,6 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
     }
 
     const context: ITasksPageContext = {
-        saveNewTaskTemporarily,
-        createTask,
-        deleteTask,
-        updateTask,
         handleTaskOptions,
         openTaskForm
     }
