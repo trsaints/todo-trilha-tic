@@ -1,6 +1,6 @@
 import {ITask} from '../entities'
 import {Priority} from '../types'
-import {mockApi} from './mock-api.ts'
+import {mockApi} from '../data'
 
 async function getTasks() {
     const {data = []} = await mockApi.get('http://localhost:3333/tasks')
