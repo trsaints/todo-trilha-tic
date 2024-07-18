@@ -2,6 +2,7 @@ import {Button} from '../Button'
 
 import {ITaskCard} from './ITaskCard'
 import './TaskCard.css'
+import {dateUtils} from '../../utils/date-utils.ts'
 
 function TaskCardMenu() {
     return (
@@ -37,6 +38,8 @@ function TaskCard(props: ITaskCard) {
         medium: 'Média',
         high: 'Alta',
     }
+    
+    const adjustedDatetime = dateUtils.adjustDateForDisplay(task.completionDate)
 
     return (
         <details className='task' data-task-id={task.id}>
@@ -44,7 +47,7 @@ function TaskCard(props: ITaskCard) {
 
             <ul className='task__meta'>
                 <li>Prioridade: {priorityTranslation[task.priority]}</li>
-                <li>Expira em: {task.completionDate.toLocaleDateString()}</li>
+                <li>Expira em: {adjustedDatetime.toLocaleDateString()}</li>
                 <li>Criado em: {task.creationDate.toLocaleDateString()}</li>
             </ul>
 
