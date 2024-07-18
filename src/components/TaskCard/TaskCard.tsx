@@ -32,7 +32,7 @@ function TaskCardMenu() {
 
 function TaskCard(props: ITaskCard) {
     const {isEditable, task} = props
-    const priotityTranslation = {
+    const priorityTranslation = {
         low: 'Baixa',
         medium: 'Média',
         high: 'Alta',
@@ -43,7 +43,7 @@ function TaskCard(props: ITaskCard) {
             <summary className='task__title'>{task.title}</summary>
 
             <ul className='task__meta'>
-                <li>Prioridade: {priotityTranslation[task.priority]}</li>
+                <li>Prioridade: {priorityTranslation[task.priority]}</li>
                 <li>Expira em: {task.completionDate.toLocaleDateString()}</li>
                 <li>Criado em: {task.creationDate.toLocaleDateString()}</li>
             </ul>
