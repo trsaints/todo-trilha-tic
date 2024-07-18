@@ -1,1 +1,2 @@
-export * from './ITask'
+export * from './Task'
+export * from './Entity'

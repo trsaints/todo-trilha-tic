@@ -1,6 +1,6 @@
 import {FormEventHandler, MouseEventHandler, useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react'
 
-import {ITask} from '../../../entities'
+import {Task} from '../../../entities'
 import {taskService} from '../../../services'
 import {DataContext, ITasksPageContext, TasksPageContext} from '../../models'
 
@@ -15,7 +15,7 @@ function TasksPageContextProvider(props: ITasksPageContextProvider) {
     const readWriteRef                  = useRef<string>(readWriteId)
 
     const {task}  = useContext(DataContext)
-    const taskRef = useRef<ITask>(task)
+    const taskRef = useRef<Task>(task)
 
     const {
               setTask,

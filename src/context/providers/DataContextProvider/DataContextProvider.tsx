@@ -3,18 +3,18 @@ import {DataContext, IDataContext} from '../../models'
 
 import {taskService} from '../../../services'
 
-import {ITask} from '../../../entities'
+import {Task} from '../../../entities'
 import {IDataContextProvider} from './IDataContextProvider.ts'
 
 function DataContextProvider(props: IDataContextProvider) {
-    const [tasks, setTasks] = useState<ITask[]>([])
+    const [tasks, setTasks] = useState<Task[]>([])
     
     const loadTasks = async () => {
         const data = await taskService.getTasks()
         setTasks(data)
     }
 
-    const [task, setTask] = useState<ITask>(taskService.getEmptyTask)
+    const [task, setTask] = useState<Task>(taskService.getEmptyTask)
 
     const [isEditable, setIsEditable] = useState<boolean>(false)
 

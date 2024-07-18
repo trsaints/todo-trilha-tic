@@ -1,7 +1,7 @@
 import {ComponentProps, MouseEventHandler} from 'react'
-import {ITask} from '../../entities'
+import {Task} from '../../entities'
 
 export interface ITaskList extends ComponentProps<'ul'> {
-	tasks: ITask[]
-	onHandleClick: MouseEventHandler<HTMLElement>
+    tasks: Task[]
+    onHandleClick: MouseEventHandler<HTMLElement>
 }
