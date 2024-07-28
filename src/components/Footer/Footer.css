@@ -1,7 +1,7 @@
 .footer {
     background-color: var(--night);
     color: var(--cream);
-    padding: 1.5rem;
+    padding: var(--padding-2xl);
     text-align: center;
     font-weight: bold;
 }

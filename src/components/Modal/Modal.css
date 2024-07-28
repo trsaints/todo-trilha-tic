@@ -9,5 +9,5 @@
 }
 
 .modal__button {
-    margin-bottom: 2rem;
+    margin-bottom: var(--margin-m);
 }

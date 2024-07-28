@@ -1,5 +1,5 @@
 [class*="__tasks"] {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: var(--size-xl);
 }

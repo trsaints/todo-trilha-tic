@@ -1,3 +1,3 @@
 .my-tasks__options {
-    margin-bottom: 4rem;
+    margin-bottom: var(--margin-l);
 }

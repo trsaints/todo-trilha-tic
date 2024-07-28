@@ -1,5 +1,5 @@
 .task-form {
-    padding: 1.5rem;
+    padding: var(--padding-2xl);
     background-color: var(--black-olive);
     border-radius: 4px;
     box-shadow: 0 0 8px var(--night);
@@ -11,20 +11,20 @@
     font-weight: 700;
     width: 100%;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: var(--margin-m);
 }
 
 .text-field {
     display: grid;
     grid-template-areas: "label blank" "input input";
-    margin-bottom: 1rem;
+    margin-bottom: var(--margin-s);
 }
 
 .text-field__label {
     grid-area: label;
     width: fit-content;
     background-color: var(--night);
-    padding: 0.5rem 1rem 0.25rem 1rem;
+    padding: var(--padding-m) var(--padding-xl)  var(--padding-xs) var(--padding-xl);
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     text-transform: uppercase;
@@ -33,7 +33,7 @@
 .text-input {
     grid-area: input;
     border: 0.25rem solid var(--night);
-    padding: 0.25rem 0.5rem;
+    padding: var(--padding-xs) var(--padding-m);
     background-color: var(--cream);
     color: var(--night);
     box-shadow: 0 0 8px var(--night);

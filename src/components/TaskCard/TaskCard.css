@@ -1,5 +1,5 @@
 .task {
-    padding: 1rem;
+    padding: var(--padding-xl);
     background-color: var(--eerie-black);
     box-shadow: 0 0 8px var(--night);
     border-radius: 4px;
@@ -12,25 +12,25 @@
 }
 
 .task[open] .task__title {
-    margin-bottom: 1rem;
+    margin-bottom: var(--margin-s);
 }
 
 .task__meta {
     display: flex;
     flex-wrap: wrap;
     gap: 0.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: var(--margin-s);
 }
 
 .task__meta li {
-    padding: 0.375rem 0.75rem;
+    padding: var(--padding-s) var(--padding-l);
     width: fit-content;
     background-color: var(--night);
     border-radius: 4px;
 }
 
 .task__description {
-    margin-bottom: 2rem;
+    margin-bottom: var(--margin-m);
 }
 
 .task__menu {

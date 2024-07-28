@@ -31,14 +31,14 @@ h1, h2 {
 }
 
 h1 {
-	margin-bottom: 4rem;
+	margin-bottom: var(--margin-l);
 }
 
 h2 {
-	margin-bottom: 2rem;
+	margin-bottom: var(--margin-m);
 }
 
 .home,
 .my-tasks {
-	padding: 4rem 1.5rem;
+	padding: var(--padding-3xl) var(--padding-2xl);
 }

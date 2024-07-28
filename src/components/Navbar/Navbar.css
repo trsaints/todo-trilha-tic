@@ -4,7 +4,7 @@
 }
 
 .main__nav {
-    padding: 1rem;
+    padding: var(--padding-xl) var(--padding-2xl);
     background-color: var(--night);
     color: var(--cream);
 }

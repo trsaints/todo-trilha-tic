@@ -1,5 +1,5 @@
 [class*="btn--"] {
-    padding: 0.5rem 1rem;
+    padding: var(--padding-m) var(--padding-xl);
     border-radius: 4px;
     text-align: center;
     box-shadow: 0 0 8px var(--night);

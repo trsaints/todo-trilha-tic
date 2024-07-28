@@ -1,0 +1,20 @@
+:root {
+    --size-2xs: 0.125rem;
+    --size-xs: 0.25rem;
+    --size-s: 0.375rem;
+    --size-m: 0.5rem;
+    --size-l: 0.625rem;
+    --size-xl: 0.75rem;
+    --size-2xl: 0.875rem;
+    --size-3xl: 1rem;
+    --margin-s: var(--size-3xl);
+    --margin-m: calc(var(--size-3xl) * 2);
+    --margin-l: calc(var(--size-3xl) * 4);
+    --padding-xs: var(--size-xs); 
+    --padding-s: var(--size-s); 
+    --padding-m: var(--size-m); 
+    --padding-l: var(--size-xl); 
+    --padding-xl: var(--size-3xl); 
+    --padding-2xl: calc(var(--size-m) * 3); 
+    --padding-3xl: calc(var(--size-3xl) * 4); 
+}
